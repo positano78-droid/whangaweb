@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimización de Procesos para Clínicas Dentales y Estéticas · Whanga Media</title>
+  <meta name="description" content="Reducimos ausencias de última hora, recuperamos pacientes que no volvieron y eliminamos los huecos en agenda por mala gestión de lista de espera. Para clínicas dentales y estéticas que quieren llenar su agenda sin depender de más administración." />
+  <meta name="keywords" content="reducir ausencias clínica dental, recuperar pacientes clínica estética, gestión lista de espera clínica, optimización agenda clínica, automatización clínica dental estética" />
+  <link rel="canonical" href="https://whangamedia.com/optimizacion-procesos-clinicas-dentales-esteticas" />
+  <meta property="og:title" content="Optimización de Procesos para Clínicas Dentales y Estéticas · Whanga Media" />
+  <meta property="og:description" content="Ausencias de última hora, pacientes que no vuelven, agenda con huecos. Tres problemas con solución operativa concreta." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Optimización de Procesos para Clínicas Dentales y Estéticas","description":"Reducción de ausencias, recuperación de pacientes inactivos y optimización de agenda en clínicas dentales y estéticas.","url":"https://whangamedia.com/optimizacion-procesos-clinicas-dentales-esteticas","isPartOf":{"@type":"WebSite","name":"Whanga Media","url":"https://whangamedia.com"}}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:  #080808; --black2: #0e0e0e; --black3: #141414;
+      --gold:   #c9a84c; --gold-lt:#e2c47a;
+      --white:  #f5f3ee; --white2: #d4cfc4; --muted: #7a7770; --border: #2a2a2a;
+      --green:  #70c090; --red: #e07070;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white2); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-family: var(--font-body); font-weight: 500; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.4; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); background-size: 180px; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.06em; color: var(--white); font-weight: 500; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { font-size: 0.78rem; padding: 0.45rem 1.2rem; border: 1px solid var(--gold); color: var(--gold); transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    /* HERO */
+    .hero { padding: 130px 0 80px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 80px 80px; -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
+    .hero-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 2rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--white); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.3rem); font-weight: 300; line-height: 1.12; color: var(--white); margin: 1rem 0 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 2.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold { display: inline-block; padding: 0.75rem 1.8rem; background: var(--gold); color: var(--black); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline { display: inline-block; padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--white2); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero cost panel */
+    .hero-cost { border: 1px solid var(--border); background: var(--black2); }
+    .hero-cost-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--black3); }
+    .hero-cost-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.5; }
+    .cost-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-row-label { font-size: 0.84rem; color: var(--white2); line-height: 1.5; }
+    .cost-row-label span { display: block; font-size: 0.74rem; color: var(--muted); margin-top: 0.2rem; }
+    .cost-row-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--red); white-space: nowrap; line-height: 1; }
+    .cost-row-num.small { font-size: 1.2rem; }
+    .hero-cost-footer { padding: 1rem 1.5rem; background: rgba(224,112,112,0.04); border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+
+    /* TRES PROBLEMAS */
+    .problems-section { padding: 7rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .problems-header { text-align: center; max-width: 560px; margin: 0 auto 5rem; }
+    .problems-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; line-height: 1.15; }
+    .problems-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .problems-header p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+    .problem-block { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .problem-block:last-child { margin-bottom: 0; }
+    .problem-left { background: var(--black2); padding: 3rem 2.5rem; }
+    .problem-num { font-family: var(--font-display); font-size: 4rem; font-weight: 300; color: rgba(201,168,76,0.08); line-height: 1; margin-bottom: 1rem; }
+    .problem-left h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--white); line-height: 1.25; margin-bottom: 1rem; }
+    .problem-left p { font-size: 0.87rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .problem-impact { display: flex; align-items: baseline; gap: 0.8rem; padding: 1rem 1.2rem; background: var(--black3); border-left: 2px solid var(--gold); margin-top: 1rem; }
+    .problem-impact-num { font-family: var(--font-display); font-size: 1.8rem; color: var(--gold); line-height: 1; flex-shrink: 0; }
+    .problem-impact-text { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .problem-right { background: var(--black3); padding: 3rem 2.5rem; display: flex; flex-direction: column; }
+    .problem-right-label { margin-bottom: 1.5rem; }
+    .problem-solution-title { font-size: 0.95rem; color: var(--white); margin-bottom: 1rem; font-weight: 500; }
+    .problem-steps { list-style: none; display: flex; flex-direction: column; gap: 0; flex: 1; }
+    .problem-step { display: flex; gap: 1rem; align-items: flex-start; padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+    .problem-step:last-child { border-bottom: none; }
+    .problem-step-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.5rem; }
+    .problem-step-text { font-size: 0.84rem; color: var(--white2); line-height: 1.6; }
+    .problem-step-text strong { color: var(--white); font-weight: 500; display: block; margin-bottom: 0.15rem; }
+    .problem-result { margin-top: 1.5rem; padding: 1rem 1.2rem; background: rgba(112,192,144,0.06); border-left: 2px solid var(--green); font-size: 0.82rem; color: var(--white2); line-height: 1.65; }
+    .problem-result strong { color: var(--green); }
+
+    /* CASO REAL */
+    .case-section { padding: 5rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .case-inner { border: 1px solid var(--border); background: var(--black2); }
+    .case-top { display: grid; grid-template-columns: 1fr auto; align-items: start; padding: 2.5rem; gap: 3rem; border-bottom: 1px solid var(--border); }
+    .case-tag-row { display: flex; gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .case-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--gold); color: var(--gold); }
+    .case-tag.neutral { border-color: var(--border); color: var(--muted); }
+    .case-inner h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--white); line-height: 1.25; margin-bottom: 0.8rem; }
+    .case-inner .case-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
+    .case-metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .case-metric { background: var(--black3); padding: 1.5rem; text-align: center; }
+    .case-metric-num { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; display: block; margin-bottom: 0.4rem; }
+    .case-metric-label { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+    .case-quote { padding: 2rem 2.5rem; background: var(--black3); border-top: 1px solid var(--border); display: flex; gap: 1.5rem; align-items: flex-start; }
+    .quote-mark { font-family: var(--font-display); font-size: 4rem; color: var(--gold); line-height: 0.6; flex-shrink: 0; opacity: 0.35; }
+    .quote-text { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--white2); line-height: 1.65; }
+    .quote-attr { font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem; }
+
+    /* BENCHMARKS */
+    .bench-section { padding: 5rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .bench-header { max-width: 520px; margin-bottom: 3rem; }
+    .bench-header h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--white); margin: 0.8rem 0; }
+    .bench-header p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .bench-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .bench-item { background: var(--black3); padding: 2rem 1.5rem; }
+    .bench-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.6rem; display: block; }
+    .bench-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    /* PROCESO */
+    .process-section { padding: 6rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .process-header { text-align: center; max-width: 520px; margin: 0 auto 4rem; }
+    .process-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; }
+    .process-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .pstep { background: var(--black2); padding: 2.5rem 2rem; }
+    .pstep-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.07); line-height: 1; margin-bottom: 1.5rem; }
+    .pstep h3 { font-size: 1rem; color: var(--white); margin-bottom: 0.7rem; font-weight: 500; }
+    .pstep p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .pstep-duration { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; background: var(--gold); color: var(--black); padding: 0.2rem 0.6rem; margin-top: 1rem; font-weight: 500; }
+
+    /* CTA */
+    .cta-section { padding: 7rem 0; background: var(--black2); }
+    .cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cta-left h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin: 0.8rem 0 1.5rem; }
+    .cta-left h2 em { font-style: italic; color: var(--gold-lt); }
+    .cta-left p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-note { font-size: 0.75rem; color: var(--muted); margin-top: 1rem; }
+    .cta-right { border: 1px solid var(--border); background: var(--black2); }
+    .cta-right-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--black3); }
+    .cta-right-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    .cta-right-item { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.84rem; color: var(--white2); }
+    .cta-right-item:last-child { border-bottom: none; }
+    .cta-right-item::before { content: '✓'; color: var(--green); font-size: 0.8rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: var(--black2); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 1rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.73rem; color: var(--muted); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 22px; height: 22px; fill: white; }
+
+    @media (max-width: 960px) {
+      .hero-inner, .problem-block, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .case-top { grid-template-columns: 1fr; }
+      .case-metrics-row { grid-template-columns: repeat(2, 1fr); }
+      .bench-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">WHANGA<span>.</span></a>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/como-trabajamos">Cómo trabajamos</a>
+      <a href="/casos-de-exito">Casos</a>
+      <a href="/diagnostico-friccion-operativa">Diagnóstico</a>
+      <a href="https://wa.me/34684229504" target="_blank" class="nav-cta">Hablar con nosotros</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container">
+      <a href="/" class="hero-back">← Volver a inicio</a>
+      <div class="hero-inner">
+        <div>
+          <div class="label">Clínicas dentales y estéticas</div>
+          <h1>Tu agenda tiene más <em>huecos de los que debería</em></h1>
+          <p class="hero-sub">Ausencias de última hora que nadie cubre. Pacientes que aceptaron un presupuesto y nunca volvieron. Lista de espera que existe pero no se gestiona. Son tres problemas distintos con una causa común: procesos que dependen de que alguien los recuerde y los ejecute.</p>
+          <div class="hero-ctas">
+            <a href="/diagnostico-friccion-operativa" class="btn-gold">Diagnóstico gratuito</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Hablar con nosotros</a>
+          </div>
+        </div>
+
+        <!-- Cost panel -->
+        <div class="hero-cost">
+          <div class="hero-cost-header">
+            <div class="label">Cuánto cuesta cada hueco</div>
+            <p>Estimación del coste por hora de silla vacía según tipo de clínica:</p>
+          </div>
+          <div class="cost-row">
+            <div class="cost-row-label">
+              Clínica dental general
+              <span>Implantología, ortodoncia, revisiones</span>
+            </div>
+            <div class="cost-row-num">80–150€</div>
+          </div>
+          <div class="cost-row">
+            <div class="cost-row-label">
+              Clínica de estética médica
+              <span>Tratamientos faciales, corporales, láser</span>
+            </div>
+            <div class="cost-row-num">60–120€</div>
+          </div>
+          <div class="cost-row">
+            <div class="cost-row-label">
+              Clínica dental especializada
+              <span>Cirugía, periodoncia, endodoncia</span>
+            </div>
+            <div class="cost-row-num small">150–300€</div>
+          </div>
+          <div class="hero-cost-footer">
+            Con una tasa de ausencias del 10–15% y una agenda de 6–8 horas diarias, el coste mensual por silla puede superar los 2.000€ solo en tiempo perdido.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRES PROBLEMAS -->
+  <section class="problems-section">
+    <div class="container">
+      <div class="problems-header">
+        <div class="label">Los tres problemas</div>
+        <h2>Tres fugas de ingresos con <em>solución operativa concreta</em></h2>
+        <p>No son problemas de captación. Son problemas de proceso. Ya tienes los pacientes — el problema es que el sistema no los retiene ni los activa.</p>
+      </div>
+
+      <!-- PROBLEMA 1 -->
+      <div class="problem-block">
+        <div class="problem-left">
+          <div class="problem-num">01</div>
+          <h3>Ausencias y cancelaciones de última hora</h3>
+          <p>Un paciente cancela a las 8 de la mañana para una cita de las 10. El hueco queda vacío porque no hay tiempo de gestionar la lista de espera. La silla de un especialista pierde entre 80 y 300€ en una hora que ya no se recupera.</p>
+          <p>El problema no es que los pacientes cancelen — es que el proceso de confirmación llega demasiado tarde y la lista de espera no se activa de forma automática cuando hay un hueco.</p>
+          <div class="problem-impact">
+            <div class="problem-impact-num">−62%</div>
+            <div class="problem-impact-text">de ausencias en clínicas que implementan confirmación estructurada con recordatorios escalonados</div>
+          </div>
+        </div>
+        <div class="problem-right">
+          <div class="problem-right-label label">Cómo lo resolvemos</div>
+          <p class="problem-solution-title">Confirmación escalonada + activación automática de lista de espera</p>
+          <ul class="problem-steps">
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Recordatorio 72h antes</strong>
+                Mensaje de confirmación con opción de confirmar, reagendar o cancelar. El paciente responde en su tiempo, no cuando le llama recepción.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Recordatorio 24h antes</strong>
+                Segundo aviso solo para quienes no han confirmado. Reduce el porcentaje de ausencias sin respuesta previa.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Activación de lista de espera si hay cancelación</strong>
+                Cuando un paciente cancela, el sistema notifica automáticamente a los primeros de la lista de espera que hay disponibilidad. Sin que recepción tenga que llamar a nadie.
+              </div>
+            </li>
+          </ul>
+          <div class="problem-result"><strong>Resultado esperado:</strong> reducción de ausencias sin respuesta y cobertura automática de huecos sin carga adicional para el equipo.</div>
+        </div>
+      </div>
+
+      <!-- PROBLEMA 2 -->
+      <div class="problem-block">
+        <div class="problem-left">
+          <div class="problem-num">02</div>
+          <h3>Pacientes que no vuelven tras el primer tratamiento</h3>
+          <p>Un paciente viene a la primera consulta, recibe un presupuesto y no vuelve. O termina un tratamiento y desaparece. En la mayoría de clínicas, no hay ningún proceso que los recupere — simplemente se pierden.</p>
+          <p>Son pacientes que ya conocen la clínica, ya confían en ella y tienen una necesidad. El coste de recuperarlos es una fracción del coste de captar uno nuevo. Pero sin un proceso activo, no vuelven solos.</p>
+          <div class="problem-impact">
+            <div class="problem-impact-num">×4</div>
+            <div class="problem-impact-text">más caro captar un paciente nuevo que reactivar uno que ya visitó la clínica</div>
+          </div>
+        </div>
+        <div class="problem-right">
+          <div class="problem-right-label label">Cómo lo resolvemos</div>
+          <p class="problem-solution-title">Secuencia de reactivación según comportamiento del paciente</p>
+          <ul class="problem-steps">
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Seguimiento post-presupuesto</strong>
+                Si un paciente recibió un presupuesto y no ha vuelto en X días, recibe un mensaje personalizado — no genérico. El timing y el contenido dependen del tipo de tratamiento y del importe.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Reactivación de pacientes inactivos</strong>
+                Pacientes que no han tenido actividad en 6, 12 o 18 meses reciben comunicaciones adaptadas a su historial. Sin necesidad de que recepción identifique quiénes son.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Recordatorio de revisiones periódicas</strong>
+                Para tratamientos con revisión recomendada, el sistema genera el recordatorio en el momento adecuado según el tipo de tratamiento, sin gestión manual.
+              </div>
+            </li>
+          </ul>
+          <div class="problem-result"><strong>Resultado esperado:</strong> porcentaje de pacientes que vuelven tras primer contacto y aumento de visitas de pacientes inactivos sin esfuerzo adicional del equipo.</div>
+        </div>
+      </div>
+
+      <!-- PROBLEMA 3 -->
+      <div class="problem-block">
+        <div class="problem-left">
+          <div class="problem-num">03</div>
+          <h3>Agenda con huecos por mala gestión de lista de espera</h3>
+          <p>Hay pacientes esperando cita, pero cuando hay un hueco nadie los llama porque recepción está ocupada o porque no hay un proceso claro. La lista de espera existe en papel o en la cabeza de alguien, pero no está operativa.</p>
+          <p>El resultado: huecos en agenda que podrían estar cubiertos, y pacientes en espera que acaban llamando a otra clínica porque nadie les contactó a tiempo.</p>
+          <div class="problem-impact">
+            <div class="problem-impact-num">+30%</div>
+            <div class="problem-impact-text">de ocupación de agenda cuando la lista de espera se activa de forma estructurada y automática</div>
+          </div>
+        </div>
+        <div class="problem-right">
+          <div class="problem-right-label label">Cómo lo resolvemos</div>
+          <p class="problem-solution-title">Lista de espera estructurada y activación sin intervención humana</p>
+          <ul class="problem-steps">
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Entrada estructurada a lista de espera</strong>
+                Cuando un paciente pide cita y no hay disponibilidad, entra a la lista de forma organizada: especialista, tipo de tratamiento y disponibilidad horaria del paciente quedan registrados.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Notificación automática cuando hay hueco compatible</strong>
+                Si aparece disponibilidad que encaja con el perfil del paciente en espera, recibe una notificación para confirmar o reagendar. El primero en responder se lleva la cita.
+              </div>
+            </li>
+            <li class="problem-step">
+              <div class="problem-step-dot"></div>
+              <div class="problem-step-text">
+                <strong>Visibilidad de huecos previsibles con antelación</strong>
+                Los huecos no siempre son sorpresa — los tratamientos de larga duración tienen fechas predecibles. El sistema anticipa cuándo va a quedar disponibilidad y activa la lista antes.
+              </div>
+            </li>
+          </ul>
+          <div class="problem-result"><strong>Resultado esperado:</strong> agenda más llena sin que recepción gestione la lista manualmente y sin que los pacientes en espera se pierdan por falta de seguimiento.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CASO REAL -->
+  <section class="case-section">
+    <div class="container">
+      <div style="margin-bottom:2rem;">
+        <div class="label">Caso documentado</div>
+      </div>
+      <div class="case-inner">
+        <div class="case-top">
+          <div>
+            <div class="case-tag-row">
+              <span class="case-tag">Clínica dental · Barcelona</span>
+              <span class="case-tag neutral">8–12 personas</span>
+              <span class="case-tag neutral">Caso real</span>
+            </div>
+            <h3>Una clínica dental que perdía entre 15 y 20 citas al mes por ausencias no gestionadas</h3>
+            <p class="case-desc">Recibían consultas por varios canales pero no tenían un proceso unificado. Los recordatorios llegaban tarde o no llegaban. La lista de espera existía pero nadie la activaba cuando había un hueco. El equipo de recepción dedicaba horas a coordinación que podría no haber existido.</p>
+          </div>
+        </div>
+        <div class="case-metrics-row">
+          <div class="case-metric">
+            <span class="case-metric-num">−62%</span>
+            <span class="case-metric-label">ausencias en primeras citas</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-num">&lt;4 min</span>
+            <span class="case-metric-label">tiempo de respuesta a nuevas consultas</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-num">+9h</span>
+            <span class="case-metric-label">semanales recuperadas en administración</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-num">3 sem</span>
+            <span class="case-metric-label">de diagnóstico a sistema activo</span>
+          </div>
+        </div>
+        <div class="case-quote">
+          <span class="quote-mark">"</span>
+          <div>
+            <p class="quote-text">Lo que más nos sorprendió fue que el equipo lo adoptó desde el primer día. No hubo resistencia porque lo construimos con ellos, no para ellos.</p>
+            <p class="quote-attr">— Responsable de administración · Clínica dental, Barcelona</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARKS -->
+  <section class="bench-section">
+    <div class="container">
+      <div class="bench-header">
+        <div class="label">Contexto del sector</div>
+        <h2>Lo que observamos en clínicas que han optimizado su operación</h2>
+        <p>Datos de referencia. No son resultados garantizados — son lo que ocurre habitualmente cuando se trabajan estas áreas de forma estructurada.</p>
+      </div>
+      <div class="bench-grid">
+        <div class="bench-item">
+          <span class="bench-num">10–20%</span>
+          <p class="bench-desc">tasa de ausencias media en clínicas sin recordatorio estructurado — la mitad son evitables con el proceso correcto</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">×4</span>
+          <p class="bench-desc">más caro captar un paciente nuevo que reactivar a uno que ya visitó la clínica al menos una vez</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">−50%</span>
+          <p class="bench-desc">de tiempo de recepción dedicado a confirmaciones y seguimiento cuando el proceso está automatizado</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">+25%</span>
+          <p class="bench-desc">de ingresos por paciente activo cuando hay un proceso de revisiones periódicas y seguimiento post-tratamiento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process-section">
+    <div class="container">
+      <div class="process-header">
+        <div class="label">Cómo trabajamos</div>
+        <h2>De diagnóstico a <em>agenda optimizada</em> en tres fases</h2>
+      </div>
+      <div class="process-steps">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <h3>Diagnóstico de tu clínica</h3>
+          <p>Analizamos tu tasa de ausencias actual, cuántos pacientes no han vuelto en los últimos 12 meses y cómo está gestionada tu lista de espera. Con números reales, no estimaciones.</p>
+          <span class="pstep-duration">Semana 1</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <h3>Implementación junto a tu equipo</h3>
+          <p>Diseñamos e implementamos los procesos de confirmación, reactivación y lista de espera trabajando con recepción. La clínica no para durante el proceso.</p>
+          <span class="pstep-duration">Semanas 2–3</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <h3>Activación y traspaso de control</h3>
+          <p>Medimos los primeros resultados reales — ausencias, cobertura de huecos, pacientes reactivados — y entregamos el control total a tu equipo.</p>
+          <span class="pstep-duration">Semana 4</span>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;border:1px solid var(--border);background:var(--black2);font-size:0.82rem;color:var(--muted);">
+        En la mayoría de clínicas, el proyecto completo se cierra en torno a 30 días. Los proyectos con varios especialistas o múltiples sedes pueden requerir algo más — y siempre lo comunicamos antes de empezar.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-left">
+          <div class="label">Primer paso</div>
+          <h2>Empieza con el <em>diagnóstico gratuito</em></h2>
+          <p>9 preguntas sobre tu operación. Al terminar recibes un análisis con el coste estimado de tus huecos de agenda actuales y las prioridades concretas para tu clínica.</p>
+          <div class="cta-actions">
+            <a href="/diagnostico-friccion-operativa" class="btn-gold">Hacer el diagnóstico</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Prefiero hablar primero</a>
+          </div>
+          <p class="cta-note">Sin compromiso · oscar@whangamedia.com · +34 660 32 37 21</p>
+        </div>
+        <div class="cta-right">
+          <div class="cta-right-header">
+            <div class="label">Lo que incluye el diagnóstico</div>
+            <p>Gratuito · 4 minutos · Sin reunión previa</p>
+          </div>
+          <div class="cta-right-item">Análisis de tus 7 áreas operativas clave</div>
+          <div class="cta-right-item">Índice operativo personalizado sobre 100</div>
+          <div class="cta-right-item">Coste mensual estimado de tus ineficiencias actuales</div>
+          <div class="cta-right-item">Recomendaciones priorizadas por impacto</div>
+          <div class="cta-right-item">Informe descargable en PDF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">WHANGA<span>.</span></div>
+        <div class="footer-links">
+          <a href="/">Inicio</a>
+          <a href="/como-trabajamos">Cómo trabajamos</a>
+          <a href="/casos-de-exito">Casos</a>
+          <a href="/diagnostico-friccion-operativa">Diagnóstico</a>
+          <a href="https://wa.me/34684229504" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 Whanga Media · Barcelona · Consultoría de optimización operativa</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34684229504" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>
