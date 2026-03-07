@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimización de Procesos para Asesorías y Gestorías · Whanga Media</title>
+  <meta name="description" content="Eliminamos las tareas repetitivas que consumen el tiempo de tu equipo: recordatorios de vencimientos, recopilación de documentación y seguimiento de clientes. Para asesorías y gestorías que quieren crecer sin contratar más." />
+  <meta name="keywords" content="optimización procesos asesoría, automatización gestora, gestión documental asesoría, recordatorios vencimientos fiscales automáticos, optimizar asesoría fiscal laboral" />
+  <link rel="canonical" href="https://whangamedia.com/optimizacion-procesos-asesorias-gestorias" />
+  <meta property="og:title" content="Optimización de Procesos para Asesorías y Gestorías · Whanga Media" />
+  <meta property="og:description" content="Tu equipo no debería dedicar horas a recordar vencimientos, perseguir documentación o responder al estado de un trámite. Eso tiene solución." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Optimización de Procesos para Asesorías y Gestorías","description":"Eliminamos la carga operativa repetitiva en asesorías y gestorías: recordatorios, documentación y seguimiento de clientes.","url":"https://whangamedia.com/optimizacion-procesos-asesorias-gestorias","isPartOf":{"@type":"WebSite","name":"Whanga Media","url":"https://whangamedia.com"}}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:  #080808; --black2: #0e0e0e; --black3: #141414;
+      --gold:   #c9a84c; --gold-lt:#e2c47a;
+      --white:  #f5f3ee; --white2: #d4cfc4; --muted: #7a7770; --border: #2a2a2a;
+      --green:  #70c090; --red: #e07070;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white2); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-family: var(--font-body); font-weight: 500; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.4; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); background-size: 180px; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.06em; color: var(--white); font-weight: 500; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { font-size: 0.78rem; padding: 0.45rem 1.2rem; border: 1px solid var(--gold); color: var(--gold); transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    /* HERO */
+    .hero { padding: 130px 0 80px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 80px 80px; -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; }
+    .hero-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 2rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--white); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.3rem); font-weight: 300; line-height: 1.12; color: var(--white); margin: 1rem 0 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 2.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold { display: inline-block; padding: 0.75rem 1.8rem; background: var(--gold); color: var(--black); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline { display: inline-block; padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--white2); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero right panel */
+    .hero-panel { border: 1px solid var(--border); background: var(--black2); }
+    .hero-panel-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .hero-panel-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.5; }
+    .hero-panel-items { display: flex; flex-direction: column; }
+    .panel-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); transition: background 0.2s; }
+    .panel-item:last-child { border-bottom: none; }
+    .panel-item:hover { background: var(--black3); }
+    .panel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.45rem; }
+    .panel-item-text { font-size: 0.84rem; color: var(--white2); line-height: 1.55; }
+    .panel-item-text span { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* SÍNTOMAS */
+    .symptoms-section { padding: 6rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .symptoms-header { max-width: 520px; margin-bottom: 3.5rem; }
+    .symptoms-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; line-height: 1.2; }
+    .symptoms-header p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+    .symptoms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .symptom-card { background: var(--black2); padding: 2rem 1.8rem; }
+    .symptom-card h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 0.6rem; font-weight: 500; }
+    .symptom-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+    .symptom-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 1rem; }
+
+    /* ÁREAS */
+    .areas-section { padding: 6rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .areas-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
+    .areas-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; line-height: 1.2; }
+    .areas-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .areas-header p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+    .areas-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .area-row { display: grid; grid-template-columns: 260px 1fr 1fr; gap: 1px; background: var(--border); }
+    .area-name { background: var(--black3); padding: 1.8rem 2rem; display: flex; align-items: center; }
+    .area-name h3 { font-size: 0.9rem; color: var(--white); font-weight: 500; line-height: 1.4; }
+    .area-cell { background: var(--black2); padding: 1.8rem 1.5rem; }
+    .area-cell-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+    .area-cell p { font-size: 0.84rem; line-height: 1.65; }
+    .area-cell.before p { color: var(--muted); }
+    .area-cell.after  p { color: var(--white2); }
+    .area-cell.after p::before { content: '→  '; color: var(--gold); }
+
+    /* BENCHMARKS */
+    .bench-section { padding: 5rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .bench-header { max-width: 520px; margin-bottom: 3rem; }
+    .bench-header h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 0.8rem; }
+    .bench-header p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .bench-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .bench-item { background: var(--black3); padding: 2rem 1.5rem; }
+    .bench-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.6rem; display: block; }
+    .bench-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .bench-source { font-size: 0.68rem; color: rgba(122,119,112,0.5); margin-top: 0.5rem; display: block; }
+
+    /* PROCESO */
+    .process-section { padding: 6rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .process-header { text-align: center; max-width: 520px; margin: 0 auto 4rem; }
+    .process-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; }
+    .process-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .pstep { background: var(--black2); padding: 2.5rem 2rem; position: relative; }
+    .pstep-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.07); line-height: 1; margin-bottom: 1.5rem; }
+    .pstep h3 { font-size: 1rem; color: var(--white); margin-bottom: 0.7rem; font-weight: 500; }
+    .pstep p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .pstep-duration { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; background: var(--gold); color: var(--black); padding: 0.2rem 0.6rem; margin-top: 1rem; font-weight: 500; }
+
+    /* CTA */
+    .cta-section { padding: 7rem 0; background: var(--black); }
+    .cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cta-left h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin: 0.8rem 0 1.5rem; }
+    .cta-left h2 em { font-style: italic; color: var(--gold-lt); }
+    .cta-left p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-note { font-size: 0.75rem; color: var(--muted); margin-top: 1rem; }
+    .cta-right { border: 1px solid var(--border); background: var(--black2); }
+    .cta-right-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--black3); }
+    .cta-right-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    .cta-right-items { display: flex; flex-direction: column; }
+    .cta-right-item { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.84rem; color: var(--white2); }
+    .cta-right-item:last-child { border-bottom: none; }
+    .cta-right-item::before { content: '✓'; color: var(--green); font-size: 0.8rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: var(--black2); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 1rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.73rem; color: var(--muted); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 22px; height: 22px; fill: white; }
+
+    @media (max-width: 960px) {
+      .hero-inner, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .symptoms-grid, .process-steps { grid-template-columns: 1fr; }
+      .bench-grid { grid-template-columns: repeat(2, 1fr); }
+      .area-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">WHANGA<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="como-trabajamos.html">Cómo trabajamos</a>
+      <a href="casos-de-exito.html">Casos</a>
+      <a href="diagnostico-friccion-operativa.html">Diagnóstico</a>
+      <a href="https://wa.me/34684229504" target="_blank" class="nav-cta">Hablar con nosotros</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container">
+      <a href="index.html" class="hero-back">← Volver a inicio</a>
+      <div class="hero-inner">
+        <div>
+          <div class="label">Asesorías y gestorías</div>
+          <h1>Tu equipo no debería dedicar horas a <em>perseguir documentación</em></h1>
+          <p class="hero-sub">Los recordatorios de vencimientos, la recopilación de documentos a clientes y el seguimiento de trámites son las tareas que más tiempo consumen en cualquier asesoría. Y casi ninguna requiere que lo haga una persona.</p>
+          <div class="hero-ctas">
+            <a href="diagnostico-friccion-operativa.html" class="btn-gold">Diagnóstico gratuito</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Hablar con nosotros</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-header">
+            <div class="label">Lo que solemos encontrar</div>
+            <p>En la mayoría de asesorías con las que hablamos, estas son las áreas con más horas perdidas:</p>
+          </div>
+          <div class="hero-panel-items">
+            <div class="panel-item">
+              <div class="panel-dot"></div>
+              <div class="panel-item-text">
+                Recordatorios de vencimientos fiscales y laborales enviados manualmente
+                <span>Impuesto 303, 111, 190, nóminas — cada uno con su propio ciclo</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <div class="panel-dot"></div>
+              <div class="panel-item-text">
+                Perseguir a clientes para que aporten documentación a tiempo
+                <span>Facturas, extractos, justificantes — siempre a última hora</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <div class="panel-dot"></div>
+              <div class="panel-item-text">
+                Clientes que llaman para saber en qué estado está su trámite
+                <span>Interrupciones que rompen el foco del equipo técnico</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <div class="panel-dot"></div>
+              <div class="panel-item-text">
+                Onboarding de cliente nuevo: recopilar datos, contratos, accesos
+                <span>Proceso largo que depende siempre de la misma persona</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÍNTOMAS -->
+  <section class="symptoms-section">
+    <div class="container">
+      <div class="symptoms-header">
+        <div class="label">El problema de fondo</div>
+        <h2>¿Reconoces alguna de estas situaciones en tu despacho?</h2>
+        <p>No son problemas de personas ni de actitud. Son problemas de proceso. Y tienen solución.</p>
+      </div>
+      <div class="symptoms-grid">
+        <div class="symptom-card">
+          <div class="symptom-num">01</div>
+          <h3>La campaña de renta depende de que los clientes aporten todo a tiempo</h3>
+          <p>Y cada año es lo mismo: el equipo persiguiendo documentos, los clientes llegando tarde, el trabajo acumulándose en las últimas semanas.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">02</div>
+          <h3>Si el gestor que lleva un cliente no está, nadie sabe qué hacer</h3>
+          <p>La información de cada cliente está en la cabeza de quien lo gestiona. Si hay una baja o una salida, el traspaso tarda días y el cliente lo nota.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">03</div>
+          <h3>Los técnicos dedican tiempo a tareas que no son técnicas</h3>
+          <p>Enviar recordatorios, responder al estado de un trámite, pedir documentación. Trabajo que consume horas del equipo más cualificado y caro.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">04</div>
+          <h3>No hay visibilidad del estado de todos los expedientes en tiempo real</h3>
+          <p>Para saber qué falta, hay que preguntar. No hay un lugar donde ver qué está pendiente, qué está listo y qué va a vencer esta semana.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">05</div>
+          <h3>El onboarding de un cliente nuevo es siempre un proceso improvisado</h3>
+          <p>Cada vez es diferente según quién lo reciba. No hay un flujo claro y el cliente empieza la relación con una primera impresión poco profesional.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">06</div>
+          <h3>Para crecer habría que contratar, pero contratar no soluciona el fondo</h3>
+          <p>Más personal con los mismos procesos produce más de lo mismo. El problema no es la cantidad de personas, es cómo están organizadas las tareas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS -->
+  <section class="areas-section">
+    <div class="container">
+      <div class="areas-header">
+        <div class="label">Qué optimizamos</div>
+        <h2>Las cuatro áreas donde <em>más tiempo se pierde</em> en una asesoría</h2>
+        <p>No llegamos con una solución estándar. Primero auditamos dónde está el coste real y trabajamos las áreas con mayor impacto para tu despacho concreto.</p>
+      </div>
+      <div class="areas-list">
+        <div class="area-row">
+          <div class="area-name"><h3>Ciclo de vencimientos y recordatorios</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>Recordatorios manuales enviados por el gestor con antelación variable. Sin confirmación de recepción ni trazabilidad de si el cliente ha aportado lo necesario.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Secuencias automáticas por tipo de obligación y perfil de cliente. El gestor solo interviene cuando hay una respuesta o incidencia. Panel de estado en tiempo real.</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Recopilación de documentación</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>El cliente aporta documentación por email, WhatsApp o en mano según el caso. El gestor tiene que centralizar, renombrar y archivar cada documento manualmente.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Flujo único de recepción de documentación con clasificación automática. El cliente sabe exactamente qué tiene que aportar y cuándo. El despacho lo recibe ordenado.</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Comunicación de estado a clientes</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>Los clientes llaman o escriben para preguntar por el estado de su trámite. El gestor interrumpe su trabajo para responder o delega en administración, que tampoco tiene visibilidad completa.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>El cliente recibe actualizaciones automáticas en los hitos clave de su expediente. Las llamadas de estado se reducen de forma inmediata y medible.</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Onboarding de cliente nuevo</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>Proceso no estandarizado que depende de quién reciba al cliente. Recopilación de datos, firma de contrato y accesos se gestionan por separado y suele haber olvidos.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Flujo de alta estructurado que el cliente completa en su tiempo. El despacho recibe todo lo necesario antes de la primera reunión, sin perseguir ni recordar nada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARKS -->
+  <section class="bench-section">
+    <div class="container">
+      <div class="bench-header">
+        <div class="label">Contexto del sector</div>
+        <h2>Lo que ocurre en despachos que han optimizado su operación</h2>
+        <p>Datos de referencia del sector. No son resultados garantizados — son lo que observamos habitualmente cuando se trabajan estas áreas en asesorías de tamaño similar.</p>
+      </div>
+      <div class="bench-grid">
+        <div class="bench-item">
+          <span class="bench-num">−70%</span>
+          <p class="bench-desc">reducción de llamadas de estado al despacho cuando el cliente recibe actualizaciones automáticas</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">2–4h</span>
+          <p class="bench-desc">diarias que un técnico medio dedica a tareas no técnicas en una asesoría sin procesos automatizados</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">×3</span>
+          <p class="bench-desc">más rápido el onboarding de un cliente nuevo cuando hay un flujo estructurado frente a un proceso manual</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">−40%</span>
+          <p class="bench-desc">de documentación entregada fuera de plazo cuando los recordatorios son automáticos y personalizados por cliente</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process-section">
+    <div class="container">
+      <div class="process-header">
+        <div class="label">Cómo trabajamos</div>
+        <h2>De diagnóstico a <em>operación optimizada</em> en tres fases</h2>
+      </div>
+      <div class="process-steps">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <h3>Diagnóstico de tu despacho</h3>
+          <p>Mapeamos cómo funciona tu operación hoy: dónde está el tiempo, qué tareas son manuales y cuál es el coste real de cada ineficiencia. Sin asumir nada.</p>
+          <span class="pstep-duration">Semana 1</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <h3>Implementación junto a tu equipo</h3>
+          <p>Optimizamos las áreas de mayor impacto trabajando junto a las personas que las gestionan cada día. Tu despacho no para durante el proceso.</p>
+          <span class="pstep-duration">Semanas 2–3</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <h3>Activación y traspaso de control</h3>
+          <p>Medimos los primeros resultados reales, ajustamos y te entregamos el control total. Tu equipo queda autónomo desde el primer día.</p>
+          <span class="pstep-duration">Semana 4</span>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;border:1px solid var(--border);background:var(--black2);font-size:0.82rem;color:var(--muted);">
+        En la mayoría de asesorías, el proyecto completo se cierra en torno a 30 días. Los proyectos más complejos pueden requerir algo más — y siempre lo comunicamos antes de empezar.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-left">
+          <div class="label">Primer paso</div>
+          <h2>Empieza con el <em>diagnóstico gratuito</em></h2>
+          <p>9 preguntas sobre tu operación. Al terminar recibes un análisis personalizado con el coste estimado de tus ineficiencias actuales y las áreas prioritarias para tu despacho concreto.</p>
+          <div class="cta-actions">
+            <a href="diagnostico-friccion-operativa.html" class="btn-gold">Hacer el diagnóstico</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Prefiero hablar primero</a>
+          </div>
+          <p class="cta-note">Sin compromiso · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="157a6676746755627d747b72747870717c743b767a78">[email&#160;protected]</a> · +34 660 32 37 21</p>
+        </div>
+        <div class="cta-right">
+          <div class="cta-right-header">
+            <div class="label">Lo que incluye el diagnóstico</div>
+            <p>Gratuito · 4 minutos · Sin reunión previa</p>
+          </div>
+          <div class="cta-right-items">
+            <div class="cta-right-item">Análisis de tus 7 áreas operativas clave</div>
+            <div class="cta-right-item">Índice operativo personalizado sobre 100</div>
+            <div class="cta-right-item">Coste mensual estimado de tus ineficiencias actuales</div>
+            <div class="cta-right-item">Recomendaciones priorizadas por impacto</div>
+            <div class="cta-right-item">Informe descargable en PDF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">WHANGA<span>.</span></div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="como-trabajamos.html">Cómo trabajamos</a>
+          <a href="casos-de-exito.html">Casos</a>
+          <a href="diagnostico-friccion-operativa.html">Diagnóstico</a>
+          <a href="https://wa.me/34684229504" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 Whanga Media · Barcelona · Consultoría de optimización operativa</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34684229504" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11

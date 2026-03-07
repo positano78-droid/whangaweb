@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimización de Procesos para E-commerce · Whanga Media</title>
+  <meta name="description" content="Eliminamos los cuellos de botella operativos que frenan el crecimiento de tu tienda online: gestión de pedidos, atención al cliente, logística y reportes manuales. Crece sin aumentar tu equipo." />
+  <meta name="keywords" content="optimización procesos ecommerce, automatización tienda online, gestión pedidos automatizada, atención cliente ecommerce, operaciones ecommerce eficientes" />
+  <link rel="canonical" href="https://whangamedia.com/optimizacion-procesos-ecommerce" />
+  <meta property="og:title" content="Optimización de Procesos para E-commerce · Whanga Media" />
+  <meta property="og:description" content="Tu tienda puede vender el doble sin que tu operación colapse. Eliminamos los procesos manuales que te impiden escalar." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Optimización de Procesos para E-commerce","description":"Eliminamos los cuellos de botella operativos en tiendas online: pedidos, atención al cliente, logística y reportes.","url":"https://whangamedia.com/optimizacion-procesos-ecommerce","isPartOf":{"@type":"WebSite","name":"Whanga Media","url":"https://whangamedia.com"}}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:  #080808; --black2: #0e0e0e; --black3: #141414;
+      --gold:   #c9a84c; --gold-lt:#e2c47a;
+      --white:  #f5f3ee; --white2: #d4cfc4; --muted: #7a7770; --border: #2a2a2a;
+      --green:  #70c090; --red: #e07070;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white2); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-family: var(--font-body); font-weight: 500; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.4; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); background-size: 180px; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.06em; color: var(--white); font-weight: 500; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { font-size: 0.78rem; padding: 0.45rem 1.2rem; border: 1px solid var(--gold); color: var(--gold); transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    /* HERO */
+    .hero { padding: 130px 0 80px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 80px 80px; -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 100%); }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; }
+    .hero-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--muted); margin-bottom: 2rem; transition: color 0.2s; }
+    .hero-back:hover { color: var(--white); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.3rem); font-weight: 300; line-height: 1.12; color: var(--white); margin: 1rem 0 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 2.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold { display: inline-block; padding: 0.75rem 1.8rem; background: var(--gold); color: var(--black); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline { display: inline-block; padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--white2); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero panel */
+    .hero-panel { border: 1px solid var(--border); background: var(--black2); }
+    .hero-panel-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .hero-panel-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.5; }
+    .panel-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); transition: background 0.2s; }
+    .panel-item:last-child { border-bottom: none; }
+    .panel-item:hover { background: var(--black3); }
+    .panel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.45rem; }
+    .panel-item-text { font-size: 0.84rem; color: var(--white2); line-height: 1.55; }
+    .panel-item-text span { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ESCALA */
+    .scale-section { padding: 5rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .scale-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .scale-left h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); line-height: 1.2; margin: 0.8rem 0 1.2rem; }
+    .scale-left h2 em { font-style: italic; color: var(--gold-lt); }
+    .scale-left p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .scale-right { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .scale-item { background: var(--black2); padding: 1.3rem 1.5rem; display: flex; gap: 1.5rem; align-items: center; }
+    .scale-item:hover { background: var(--black3); }
+    .scale-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--gold); flex-shrink: 0; width: 60px; line-height: 1; }
+    .scale-text { font-size: 0.84rem; color: var(--white2); line-height: 1.55; }
+    .scale-text span { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* SÍNTOMAS */
+    .symptoms-section { padding: 6rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .symptoms-header { max-width: 520px; margin-bottom: 3.5rem; }
+    .symptoms-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; line-height: 1.2; }
+    .symptoms-header p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+    .symptoms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .symptom-card { background: var(--black2); padding: 2rem 1.8rem; }
+    .symptom-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: rgba(201,168,76,0.1); line-height: 1; margin-bottom: 1rem; }
+    .symptom-card h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 0.6rem; font-weight: 500; }
+    .symptom-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+
+    /* ÁREAS */
+    .areas-section { padding: 6rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .areas-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
+    .areas-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; line-height: 1.2; }
+    .areas-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .areas-header p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+    .areas-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .area-row { display: grid; grid-template-columns: 240px 1fr 1fr; gap: 1px; background: var(--border); }
+    .area-name { background: var(--black3); padding: 1.8rem 2rem; display: flex; align-items: center; }
+    .area-name h3 { font-size: 0.9rem; color: var(--white); font-weight: 500; line-height: 1.4; }
+    .area-cell { background: var(--black2); padding: 1.8rem 1.5rem; }
+    .area-cell-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+    .area-cell p { font-size: 0.84rem; line-height: 1.65; }
+    .area-cell.before p { color: var(--muted); }
+    .area-cell.after p { color: var(--white2); }
+    .area-cell.after p::before { content: '→  '; color: var(--gold); }
+
+    /* BENCHMARKS */
+    .bench-section { padding: 5rem 0; background: var(--black); border-bottom: 1px solid var(--border); }
+    .bench-header { max-width: 520px; margin-bottom: 3rem; }
+    .bench-header h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 0.8rem; }
+    .bench-header p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .bench-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .bench-item { background: var(--black3); padding: 2rem 1.5rem; }
+    .bench-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.6rem; display: block; }
+    .bench-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    /* PROCESO */
+    .process-section { padding: 6rem 0; background: var(--black2); border-bottom: 1px solid var(--border); }
+    .process-header { text-align: center; max-width: 520px; margin: 0 auto 4rem; }
+    .process-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--white); margin: 0.8rem 0 1rem; }
+    .process-header h2 em { font-style: italic; color: var(--gold-lt); }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .pstep { background: var(--black2); padding: 2.5rem 2rem; }
+    .pstep-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.07); line-height: 1; margin-bottom: 1.5rem; }
+    .pstep h3 { font-size: 1rem; color: var(--white); margin-bottom: 0.7rem; font-weight: 500; }
+    .pstep p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .pstep-duration { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; background: var(--gold); color: var(--black); padding: 0.2rem 0.6rem; margin-top: 1rem; font-weight: 500; }
+
+    /* CTA */
+    .cta-section { padding: 7rem 0; background: var(--black); }
+    .cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cta-left h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin: 0.8rem 0 1.5rem; }
+    .cta-left h2 em { font-style: italic; color: var(--gold-lt); }
+    .cta-left p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-note { font-size: 0.75rem; color: var(--muted); margin-top: 1rem; }
+    .cta-right { border: 1px solid var(--border); background: var(--black2); }
+    .cta-right-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--black3); }
+    .cta-right-header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    .cta-right-item { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.84rem; color: var(--white2); }
+    .cta-right-item:last-child { border-bottom: none; }
+    .cta-right-item::before { content: '✓'; color: var(--green); font-size: 0.8rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: var(--black2); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 1rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.73rem; color: var(--muted); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 22px; height: 22px; fill: white; }
+
+    @media (max-width: 960px) {
+      .hero-inner, .scale-inner, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .symptoms-grid, .process-steps { grid-template-columns: 1fr; }
+      .bench-grid { grid-template-columns: repeat(2, 1fr); }
+      .area-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">WHANGA<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="como-trabajamos.html">Cómo trabajamos</a>
+      <a href="casos-de-exito.html">Casos</a>
+      <a href="diagnostico-friccion-operativa.html">Diagnóstico</a>
+      <a href="https://wa.me/34684229504" target="_blank" class="nav-cta">Hablar con nosotros</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container">
+      <a href="index.html" class="hero-back">← Volver a inicio</a>
+      <div class="hero-inner">
+        <div>
+          <div class="label">E-commerce</div>
+          <h1>Tu tienda puede vender más sin que la <em>operación colapse</em></h1>
+          <p class="hero-sub">Cuando el volumen sube, los procesos manuales que "funcionaban" dejan de funcionar. Gestión de pedidos, atención al cliente, coordinación con proveedores, reportes — todo se convierte en una carga que frena el crecimiento.</p>
+          <div class="hero-ctas">
+            <a href="diagnostico-friccion-operativa.html" class="btn-gold">Diagnóstico gratuito</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Hablar con nosotros</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-header">
+            <div class="label">Lo que solemos encontrar</div>
+            <p>Las áreas con más carga operativa en e-commerce de tamaño medio:</p>
+          </div>
+          <div class="panel-item">
+            <div class="panel-dot"></div>
+            <div class="panel-item-text">
+              Gestión de pedidos y estados de envío actualizada manualmente
+              <span>Un pedido puede tocarse 4 o 5 veces antes de salir por la puerta</span>
+            </div>
+          </div>
+          <div class="panel-item">
+            <div class="panel-dot"></div>
+            <div class="panel-item-text">
+              Atención al cliente respondiendo las mismas preguntas cada día
+              <span>Estado del pedido, plazos, cambios, devoluciones — siempre lo mismo</span>
+            </div>
+          </div>
+          <div class="panel-item">
+            <div class="panel-dot"></div>
+            <div class="panel-item-text">
+              Stock actualizado entre plataformas de forma manual o con retardo
+              <span>Overselling, roturas y correcciones que cuestan tiempo y reputación</span>
+            </div>
+          </div>
+          <div class="panel-item">
+            <div class="panel-dot"></div>
+            <div class="panel-item-text">
+              Reportes de ventas, márgenes y rendimiento construidos a mano
+              <span>Cada semana alguien dedica horas a exportar, cruzar y limpiar datos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCALA -->
+  <section class="scale-section">
+    <div class="container">
+      <div class="scale-inner">
+        <div class="scale-left">
+          <div class="label">El problema de escalar</div>
+          <h2>Los procesos que funcionan con 50 pedidos al mes <em>no escalan</em> a 500</h2>
+          <p>La mayoría de e-commerce crecen hasta un punto donde la operación se convierte en el cuello de botella. No es un problema de ventas ni de marketing — es un problema de cómo está organizado el trabajo detrás de la tienda.</p>
+          <p>Cuando ese punto llega, la solución no es contratar más personas para hacer lo mismo. Es eliminar el trabajo que no debería existir.</p>
+        </div>
+        <div class="scale-right">
+          <div class="scale-item">
+            <div class="scale-num">×10</div>
+            <div class="scale-text">
+              de volumen de pedidos
+              <span>con el mismo equipo, cuando los procesos están optimizados</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <div class="scale-num">−65%</div>
+            <div class="scale-text">
+              de tickets de atención al cliente
+              <span>cuando la comunicación post-compra está automatizada</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <div class="scale-num">0</div>
+            <div class="scale-text">
+              overselling por desincronización de stock
+              <span>cuando los sistemas hablan entre sí en tiempo real</span>
+            </div>
+          </div>
+          <div class="scale-item">
+            <div class="scale-num">−80%</div>
+            <div class="scale-text">
+              del tiempo dedicado a reportes semanales
+              <span>cuando los datos fluyen solos hacia un panel centralizado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÍNTOMAS -->
+  <section class="symptoms-section">
+    <div class="container">
+      <div class="symptoms-header">
+        <div class="label">¿Tu tienda tiene esto?</div>
+        <h2>Señales de que la operación está frenando el crecimiento</h2>
+        <p>No son problemas de personas. Son procesos que funcionaban en una fase anterior y que ya no encajan con el volumen actual.</p>
+      </div>
+      <div class="symptoms-grid">
+        <div class="symptom-card">
+          <div class="symptom-num">01</div>
+          <h3>Cuando hay picos de ventas, el equipo colapsa</h3>
+          <p>Black Friday, rebajas, lanzamientos — los momentos de más ventas son también los de más estrés operativo. El equipo no da abasto con lo mismo que gestiona bien en días normales.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">02</div>
+          <h3>Atención al cliente responde las mismas preguntas todos los días</h3>
+          <p>El 70-80% de los tickets suelen ser siempre los mismos: dónde está mi pedido, cuándo llega, cómo hago una devolución. Trabajo repetitivo que consume al equipo y ralentiza el resto.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">03</div>
+          <h3>Saber cómo va el negocio requiere construir un informe a mano</h3>
+          <p>No hay un lugar donde ver en tiempo real ventas, stock, márgenes y devoluciones. Cada semana alguien tiene que cruzar datos de varias fuentes para tener una imagen completa.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">04</div>
+          <h3>El stock entre plataformas no siempre está sincronizado</h3>
+          <p>Si vendes en más de un canal, el inventario se desincroniza. Los overselling, las correcciones manuales y las quejas de clientes son el coste de no tener esto automatizado.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">05</div>
+          <h3>El proceso de un pedido toca demasiadas manos antes de salir</h3>
+          <p>Confirmación, preparación, etiquetado, actualización de estado, comunicación al cliente — cada paso es manual y cada paso es una oportunidad de error o retraso.</p>
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-num">06</div>
+          <h3>Para contratar hay que enseñar todo desde cero cada vez</h3>
+          <p>Los procesos no están documentados. Cuando alguien nuevo entra al equipo, aprende observando. Cuando alguien se va, se lleva el conocimiento consigo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS -->
+  <section class="areas-section">
+    <div class="container">
+      <div class="areas-header">
+        <div class="label">Qué optimizamos</div>
+        <h2>Las cuatro áreas donde <em>más tiempo se pierde</em> en un e-commerce</h2>
+        <p>Diagnosticamos tu operación concreta antes de proponer nada. Estas son las áreas que trabajamos habitualmente en tiendas online de tamaño medio.</p>
+      </div>
+      <div class="areas-list">
+        <div class="area-row">
+          <div class="area-name"><h3>Gestión de pedidos y fulfillment</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>Cada pedido requiere intervención manual en varios puntos: confirmación, actualización de estado, comunicación al cliente y coordinación con logística.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Flujo automatizado desde la compra hasta la entrega. El equipo solo interviene en incidencias. El cliente recibe actualizaciones en cada hito sin que nadie las envíe.</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Atención al cliente post-compra</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>El equipo responde manualmente a preguntas sobre estado del pedido, plazos de entrega, cambios y devoluciones. Las mismas preguntas, todos los días.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Las preguntas frecuentes se resuelven sin intervención humana. El equipo dedica su tiempo a incidencias reales que requieren criterio, no a responder "¿dónde está mi pedido?".</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Sincronización de inventario</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>El stock se actualiza manualmente entre plataformas o con retardo. Overselling, correcciones y ajustes son parte del trabajo diario del equipo.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Sincronización en tiempo real entre todos los canales de venta. Alertas automáticas de stock bajo. Cero intervención manual para mantener el inventario actualizado.</p>
+          </div>
+        </div>
+        <div class="area-row">
+          <div class="area-name"><h3>Reportes y visibilidad del negocio</h3></div>
+          <div class="area-cell before">
+            <div class="area-cell-label">Situación habitual</div>
+            <p>Para saber cómo va el negocio hay que exportar datos de varias fuentes, cruzarlos y construir el informe. Proceso que consume horas y siempre va con retraso.</p>
+          </div>
+          <div class="area-cell after">
+            <div class="area-cell-label">Con optimización</div>
+            <p>Panel centralizado con ventas, márgenes, devoluciones y stock actualizado en tiempo real. La información está disponible sin que nadie tenga que construirla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARKS -->
+  <section class="bench-section">
+    <div class="container">
+      <div class="bench-header">
+        <div class="label">Contexto del sector</div>
+        <h2>Lo que ocurre en e-commerce que han optimizado su operación</h2>
+        <p>Datos de referencia. No son resultados garantizados — son lo que observamos habitualmente cuando se trabajan estas áreas en tiendas online de tamaño similar.</p>
+      </div>
+      <div class="bench-grid">
+        <div class="bench-item">
+          <span class="bench-num">−65%</span>
+          <p class="bench-desc">de tickets de atención al cliente cuando la comunicación post-compra está automatizada</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">×3</span>
+          <p class="bench-desc">más pedidos gestionables por el mismo equipo cuando el fulfillment está optimizado</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">−80%</span>
+          <p class="bench-desc">del tiempo dedicado a reportes semanales con un panel de datos centralizado y automatizado</p>
+        </div>
+        <div class="bench-item">
+          <span class="bench-num">0</span>
+          <p class="bench-desc">incidencias de overselling cuando el inventario se sincroniza en tiempo real entre plataformas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process-section">
+    <div class="container">
+      <div class="process-header">
+        <div class="label">Cómo trabajamos</div>
+        <h2>De diagnóstico a <em>operación optimizada</em> en tres fases</h2>
+      </div>
+      <div class="process-steps">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <h3>Diagnóstico de tu operación</h3>
+          <p>Mapeamos el flujo completo de tu tienda: desde que llega un pedido hasta que el cliente lo recibe. Identificamos dónde está el tiempo y cuánto cuesta cada ineficiencia.</p>
+          <span class="pstep-duration">Semana 1</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <h3>Implementación junto a tu equipo</h3>
+          <p>Optimizamos las áreas de mayor impacto sin detener las ventas. Trabajamos con las personas que gestionan la operación cada día para que cada mejora encaje con cómo trabajan.</p>
+          <span class="pstep-duration">Semanas 2–3</span>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <h3>Activación y traspaso de control</h3>
+          <p>Medimos los primeros resultados reales, ajustamos sobre datos reales y entregamos el control total. Tu equipo opera con autonomía desde el primer día.</p>
+          <span class="pstep-duration">Semana 4</span>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;border:1px solid var(--border);background:var(--black3);font-size:0.82rem;color:var(--muted);">
+        En la mayoría de proyectos de e-commerce, el ciclo completo se cierra en torno a 30 días. Los proyectos con más integraciones o volumen pueden requerir algo más — y siempre lo comunicamos antes de empezar.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-left">
+          <div class="label">Primer paso</div>
+          <h2>Empieza con el <em>diagnóstico gratuito</em></h2>
+          <p>9 preguntas sobre tu operación. Al terminar recibes un análisis personalizado con el coste estimado de tus ineficiencias actuales y las áreas prioritarias para tu tienda concreta.</p>
+          <div class="cta-actions">
+            <a href="diagnostico-friccion-operativa.html" class="btn-gold">Hacer el diagnóstico</a>
+            <a href="https://wa.me/34684229504" target="_blank" class="btn-outline">Prefiero hablar primero</a>
+          </div>
+          <p class="cta-note">Sin compromiso · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd3cfdfddcefccbd4ddd2dbddd1d9d8d5dd92dfd3d1">[email&#160;protected]</a> · +34 660 32 37 21</p>
+        </div>
+        <div class="cta-right">
+          <div class="cta-right-header">
+            <div class="label">Lo que incluye el diagnóstico</div>
+            <p>Gratuito · 4 minutos · Sin reunión previa</p>
+          </div>
+          <div class="cta-right-item">Análisis de tus 7 áreas operativas clave</div>
+          <div class="cta-right-item">Índice operativo personalizado sobre 100</div>
+          <div class="cta-right-item">Coste mensual estimado de tus ineficiencias actuales</div>
+          <div class="cta-right-item">Recomendaciones priorizadas por impacto</div>
+          <div class="cta-right-item">Informe descargable en PDF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">WHANGA<span>.</span></div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="como-trabajamos.html">Cómo trabajamos</a>
+          <a href="casos-de-exito.html">Casos</a>
+          <a href="diagnostico-friccion-operativa.html">Diagnóstico</a>
+          <a href="https://wa.me/34684229504" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 Whanga Media · Barcelona · Consultoría de optimización operativa</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34684229504" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11
