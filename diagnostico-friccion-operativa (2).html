@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Diagnóstico de Fricción Operativa · Whanga Media</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#111;--bg3:#181818;--border:#222;--red:#e5342b;--text:#f0ede8;--dim:#7a7570;--mid:#b0ada8}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px}
+.nav-logo{font-weight:600;font-size:1.1rem;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--red)}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav ul a{font-size:.85rem;font-weight:500;color:var(--mid);text-decoration:none}
+nav ul a:hover{color:var(--text)}
+.page-wrap{max-width:800px;margin:0 auto;padding:100px 2rem 6rem}
+.intro{text-align:center;margin-bottom:4rem}
+.intro h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem}
+.intro h1 em{font-style:italic;color:var(--mid)}
+.intro p{font-size:1rem;color:var(--mid);max-width:520px;margin:0 auto;line-height:1.75}
+.intro-tag{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.intro-tag::before,.intro-tag::after{content:'';display:block;width:24px;height:1px;background:var(--red)}
+.intro-meta{margin-top:1.5rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.meta-item{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--dim)}
+.meta-item span{color:var(--mid)}
+.progress-bar-wrap{margin-bottom:2.5rem}
+.progress-header{display:flex;justify-content:space-between;margin-bottom:.6rem}
+.progress-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+.progress-count{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--red)}
+.progress-track{height:2px;background:var(--border);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--red);transition:width .4s ease;width:0%}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:2px;overflow:hidden;animation:slideIn .35s ease forwards}
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sector-header{padding:1.6rem 2rem;border-bottom:1px solid var(--border);background:var(--bg3)}
+.sector-tag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:var(--red);text-transform:uppercase;margin-bottom:.4rem}
+.sector-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.25rem;font-weight:400;color:var(--text);line-height:1.35}
+.sector-sub{font-size:.82rem;color:var(--dim);margin-top:.4rem}
+.sector-grid{padding:1.6rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.sec-btn{background:var(--bg);border:1px solid var(--border);border-radius:2px;padding:1.2rem .9rem;cursor:pointer;transition:border-color .15s,background .15s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;width:100%}
+.sec-btn:hover{border-color:rgba(229,52,43,.4);background:rgba(229,52,43,.04)}
+.sec-btn.selected{border-color:var(--red);background:rgba(229,52,43,.09)}
+.sec-icon{font-size:1.5rem;line-height:1}
+.sec-name{font-size:.78rem;font-weight:600;color:var(--mid);line-height:1.3}
+.sec-btn.selected .sec-name{color:var(--text)}
+.sector-footer{padding:1rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:flex-end}
+.q-header{padding:1.6rem 2rem;border-bottom:1px solid var(--border);background:var(--bg3);display:flex;align-items:flex-start;gap:1rem}
+.q-num{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;color:var(--red);background:rgba(229,52,43,.1);padding:.25rem .5rem;border-radius:2px;flex-shrink:0;margin-top:.25rem}
+.q-area{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;margin-bottom:.4rem}
+.q-text{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;font-weight:400;color:var(--text);line-height:1.35}
+.q-options{padding:1.5rem 2rem;display:flex;flex-direction:column;gap:.7rem}
+.opt-btn{background:var(--bg);border:1px solid var(--border);border-radius:2px;padding:.9rem 1.2rem;display:flex;align-items:flex-start;gap:.85rem;cursor:pointer;transition:border-color .15s,background .15s;text-align:left;width:100%}
+.opt-btn:hover{border-color:rgba(229,52,43,.35);background:rgba(229,52,43,.04)}
+.opt-btn.selected{border-color:var(--red);background:rgba(229,52,43,.08)}
+.opt-letter{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;color:var(--dim);flex-shrink:0;margin-top:.1rem;min-width:18px}
+.opt-btn.selected .opt-letter{color:var(--red)}
+.opt-text{font-size:.88rem;color:var(--mid);line-height:1.5}
+.opt-btn.selected .opt-text{color:var(--text)}
+.q-footer{padding:1.2rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.btn-back{background:none;border:1px solid var(--border);border-radius:2px;color:var(--dim);font-family:'Instrument Sans',sans-serif;font-size:.82rem;padding:.6rem 1.2rem;cursor:pointer}
+.btn-back:hover{border-color:var(--dim);color:var(--mid)}
+.btn-next{background:var(--red);border:none;border-radius:2px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:.85rem;font-weight:600;padding:.7rem 1.8rem;cursor:pointer;opacity:.28;pointer-events:none}
+.btn-next.on{opacity:1;pointer-events:auto}
+.btn-next.on:hover{opacity:.85}
+.c-header{padding:1.6rem 2rem;border-bottom:1px solid var(--border);background:var(--bg3)}
+.c-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:.4rem}
+.c-header h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;font-weight:400;color:var(--text)}
+.c-body{padding:1.8rem 2rem}
+.c-intro{font-size:.875rem;color:var(--mid);line-height:1.7;margin-bottom:1.5rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.cf-field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.cf-field label{font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--mid)}
+.cf-field input{background:var(--bg);border:1px solid var(--border);border-radius:2px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:.9rem;padding:.7rem .9rem;outline:none;transition:border-color .2s;width:100%}
+.cf-field input::placeholder{color:var(--dim)}
+.cf-field input:focus{border-color:var(--red)}
+.btn-gen{width:100%;background:var(--red);border:none;border-radius:2px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:.9rem;font-weight:600;padding:1rem;cursor:pointer;margin-top:.4rem}
+.btn-gen:hover{opacity:.85}
+.c-foot{font-size:.75rem;color:var(--dim);text-align:center;margin-top:.8rem}
+.r-header{padding:2rem;border-bottom:1px solid var(--border);background:var(--bg3);text-align:center}
+.r-badge{display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .8rem;border-radius:2px;margin-bottom:1rem;font-weight:500}
+.badge-high{background:rgba(229,52,43,.15);color:var(--red);border:1px solid rgba(229,52,43,.3)}
+.badge-mid{background:rgba(229,180,43,.12);color:#e5b42b;border:1px solid rgba(229,180,43,.3)}
+.badge-low{background:rgba(43,229,120,.1);color:#2be578;border:1px solid rgba(43,229,120,.25)}
+.r-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;font-weight:400;color:var(--text);margin-bottom:.5rem}
+.r-sub{font-size:.875rem;color:var(--mid);line-height:1.6;max-width:500px;margin:0 auto}
+.r-body{padding:2rem}
+.score-row{display:flex;align-items:center;gap:1.5rem;background:var(--bg3);border:1px solid var(--border);padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-radius:2px}
+.score-num{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;font-weight:400;line-height:1;color:var(--red);flex-shrink:0}
+.score-lbl{font-size:.82rem;color:var(--mid);line-height:1.6}
+.score-lbl strong{color:var(--text);font-weight:600;display:block;margin-bottom:.2rem}
+.areas-ttl{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem}
+.areas-list{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.a-item{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;border:1px solid var(--border);border-radius:2px;gap:1rem}
+.a-item.hi{border-left:3px solid var(--red)}
+.a-item.ok{border-left:3px solid #2be578;opacity:.7}
+.a-name{font-size:.875rem;color:var(--text);font-weight:500}
+.a-tag{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;padding:.2rem .55rem;border-radius:2px;flex-shrink:0}
+.t-hi{background:rgba(229,52,43,.12);color:var(--red)}
+.t-mid{background:rgba(229,180,43,.1);color:#e5b42b}
+.t-ok{background:rgba(43,229,120,.08);color:#2be578}
+.r-actions{display:flex;flex-direction:column;gap:.75rem}
+.btn-dl{display:flex;align-items:center;justify-content:center;gap:.75rem;background:var(--red);border:none;border-radius:2px;color:var(--text);font-family:'Instrument Sans',sans-serif;font-size:.9rem;font-weight:600;padding:1rem;cursor:pointer;width:100%}
+.btn-dl:hover{opacity:.85}
+.btn-ses{display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:2px;color:var(--mid);font-family:'Instrument Sans',sans-serif;font-size:.875rem;font-weight:500;padding:.9rem;cursor:pointer;width:100%;text-decoration:none}
+.btn-ses:hover{border-color:var(--mid);color:var(--text)}
+.r-foot{font-size:.75rem;color:var(--dim);text-align:center;margin-top:1rem;line-height:1.5}
+.hidden{display:none!important}
+@media(max-width:640px){.cf-row,.sector-grid{grid-template-columns:1fr 1fr}nav ul{display:none}.page-wrap{padding:80px 1rem 4rem}.score-row{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">WHANGA<span>.</span></a>
+  <ul>
+    <li><a href="como-trabajamos.html">Cómo trabajamos</a></li>
+    <li><a href="casos-de-exito.html">Casos</a></li>
+    <li><a href="diagnostico-friccion-operativa.html">Diagnóstico</a></li>
+  </ul>
+</nav>
+<div class="page-wrap">
+  <div class="intro" id="introBlock">
+    <div class="intro-tag">Diagnóstico gratuito</div>
+    <h1>Mide la fricción<br><em>operativa</em> de tu negocio</h1>
+    <p>8 preguntas · 3 minutos · Informe sectorial de IA personalizado para tu industria.</p>
+    <div class="intro-meta">
+      <div class="meta-item">⏱ <span>~3 minutos</span></div>
+      <div class="meta-item">◎ <span>Informe sectorial de IA</span></div>
+      <div class="meta-item">✓ <span>Sin compromiso</span></div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap hidden" id="progressWrap">
+    <div class="progress-header">
+      <span class="progress-label">Progreso</span>
+      <span class="progress-count" id="progressCount">1 / 8</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div id="mainBlock"></div>
+  <div class="card hidden" id="contactBlock">
+    <div class="c-header">
+      <div class="c-label">Último paso</div>
+      <h2>¿A quién enviamos el informe?</h2>
+    </div>
+    <div class="c-body">
+      <p class="c-intro">Recibirás un informe sectorial completo sobre el estado actual de la IA en tu industria: datos reales, qué están haciendo tus competidores y las oportunidades concretas para tu negocio.</p>
+      <div class="cf-row">
+        <div class="cf-field"><label>Nombre</label><input type="text" id="cf-name" placeholder="Tu nombre"/></div>
+        <div class="cf-field"><label>Empresa</label><input type="text" id="cf-company" placeholder="Nombre de la empresa"/></div>
+      </div>
+      <div class="cf-field"><label>Email</label><input type="email" id="cf-email" placeholder="nombre@empresa.com"/></div>
+      <button class="btn-gen" onclick="generateResults()">Ver informe sectorial →</button>
+      <p class="c-foot">Tus datos se usan únicamente para personalizar el informe.</p>
+    </div>
+  </div>
+  <div class="card hidden" id="resultBlock">
+    <div class="r-header">
+      <div class="r-badge" id="rBadge"></div>
+      <div class="r-title" id="rTitle"></div>
+      <div class="r-sub" id="rSub"></div>
+    </div>
+    <div class="r-body">
+      <div class="score-row">
+        <div class="score-num" id="scoreNum"></div>
+        <div class="score-lbl"><strong id="scoreLblMain"></strong><span id="scoreLblSub"></span></div>
+      </div>
+      <div class="areas-ttl">Diagnóstico rápido</div>
+      <div class="areas-list" id="areasList"></div>
+      <div class="r-actions">
+        <button class="btn-dl" onclick="openReport()">Ver informe sectorial de IA →</button>
+        <a href="/cdn-cgi/l/email-protection#244c4b484564534c454a43454941404d450a474b49" class="btn-ses">Solicitar sesión de diagnóstico estratégico →</a>
+      </div>
+      <p class="r-foot">El informe contiene el estado real de la IA en tu sector, datos de adopción, casos documentados y oportunidades concretas.</p>
+    </div>
+  </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var SC = {
+  salud: {
+    label: 'Salud y Clínicas',
+    year: '2025',
+    context: 'El sector salud es uno de los más activos en adopción de IA a nivel global. En 2024 la inversión en IA sanitaria superó los 45.000M$ y se espera que alcance los 187.000M$ en 2030. España va con retraso respecto a mercados como UK, Alemania o EE.UU., lo que representa tanto un riesgo como una oportunidad para los centros que actúen ahora.',
+    market: [
+      {num:'187.000M€', desc:'Valor proyectado del mercado global de IA en salud para 2030 (CAGR 37%)'},
+      {num:'92%', desc:'De hospitales de primer nivel en EE.UU. ya usan IA en algún proceso operativo'},
+      {num:'4,2h', desc:'Tiempo medio que pierde un profesional sanitario al día en tareas administrativas'},
+      {num:'34%', desc:'De citas médicas en España se pierden por no-show o gestión ineficiente de agenda'}
+    ],
+    trends: [
+      {title:'Automatización administrativa: la prioridad número uno', body:'Según McKinsey Health Institute (2024), el 47% de las tareas administrativas en centros sanitarios son automatizables con tecnología actual. Gestión de citas, documentación clínica, facturación y seguimiento post-visita son los procesos con mayor retorno inmediato. Los centros que han automatizado estas áreas reportan una reducción media del 62% en carga administrativa.'},
+      {title:'IA conversacional para pacientes: estándar emergente', body:'En 2024, el 68% de los pacientes europeos prefieren resolver consultas básicas (resultados, citas, recetas) por canales digitales antes que llamar. Los centros con asistentes conversacionales 24/7 reportan un incremento del 41% en satisfacción del paciente (NPS) y una reducción del 58% en llamadas entrantes al equipo administrativo.'},
+      {title:'Diagnóstico asistido: rentabilidad probada', body:'La IA diagnóstica (imagen médica, análisis clínico) ha pasado de experimental a operativa. Estudios de Stanford (2024) muestran que los sistemas de IA detectan patologías con una precisión del 94,5% frente al 87% del especialista en solitario. La combinación IA+médico alcanza el 97,8%. Los centros que la usan reducen tiempos de diagnóstico un 71%.'},
+      {title:'Predicción de demanda y gestión de recursos', body:'Los modelos predictivos permiten anticipar el volumen de pacientes con 2 semanas de antelación y un margen de error inferior al 8%. Esto permite optimizar turnos, reducir listas de espera y mejorar la utilización de quirófanos. Centros en Alemania y Países Bajos que usan IA predictiva han reducido sus listas de espera un 38% en 12 meses.'}
+    ],
+    competition: [
+      {who:'Hospitales de la red pública catalana', what:'Implantación de IA para triaje en urgencias y gestión de camas. Reducción del 22% en tiempos de espera en urgencias en los centros piloto (2024).'},
+      {who:'Clínicas Quirónsalud', what:'Despliegue de chatbot para gestión de citas y resultados en toda la red. 1,2M de interacciones automatizadas en el primer año. Reducción del 44% en carga telefónica.'},
+      {who:'Red de clínicas dentales Asisa', what:'Automatización de recordatorios y seguimiento post-tratamiento. Reducción de no-shows del 24% al 9% en 8 meses.'},
+      {who:'Clínicas independientes (segmento mid-market)', what:'Solo el 12% ha implementado IA de forma sistemática. El 88% restante sigue operando con procesos manuales, lo que representa la mayor oportunidad de diferenciación.'}
+    ],
+    opportunity: 'Un centro sanitario con 500 pacientes/mes que implementa IA en gestión de citas, recordatorios y seguimiento puede esperar: reducción de no-shows del 60-70%, recuperación de 8-12 citas perdidas por semana, y ahorro de 1,5-2 FTE en labores administrativas. ROI típico: 4-6 meses.',
+    cta: 'Las clínicas que actúen en los próximos 12 meses capturarán la ventaja competitiva. Las que esperen, competirán contra un mercado que ya ha automatizado.'
+  },
+  legal: {
+    label: 'Despachos Jurídicos',
+    year: '2025',
+    context: 'El sector legal es el segundo más impactado por la IA generativa después de los servicios financieros. Los grandes despachos internacionales (Linklaters, Allen & Overy, Freshfields) ya han integrado IA en sus flujos de trabajo. En España, los despachos medianos y grandes están en fase de piloto. Los despachos pequeños aún no han comenzado — y esa brecha se cerrará rápido.',
+    market: [
+      {num:'35.000M$', desc:'Valor del mercado global de IA legal en 2025. Proyección: 119.000M$ para 2030'},
+      {num:'2,5h/día', desc:'Tiempo medio que pierde cada abogado en tareas no facturables (búsqueda documental, resúmenes, formatos)'},
+      {num:'72%', desc:'De los socios de grandes despachos en EE.UU. consideran la IA "transformacional" para su negocio'},
+      {num:'3x', desc:'Incremento en capacidad de producción documentada en despachos con IA integrada vs. sin ella'}
+    ],
+    trends: [
+      {title:'Legal AI: de herramienta a infraestructura', body:'Herramientas como Harvey AI, CoCounsel (Thomson Reuters) y Lexis+ AI han pasado de fases beta a contratos enterprise en 2024. Allen & Overy (ahora A&O Shearman) lleva más de un año con Harvey integrado en sus flujos de trabajo, con más de 3.500 abogados usando IA a diario. La pregunta ya no es "si adoptar" sino "a qué velocidad".'},
+      {title:'Automatización de due diligence: el mayor retorno', body:'La revisión de contratos era una de las tareas más costosas en tiempo para los abogados. Los sistemas actuales de IA revisan un contrato estándar en 45 segundos con una precisión del 96% en identificación de cláusulas de riesgo. Despachos que han implementado estas soluciones reportan una reducción del 80% en tiempo de due diligence, traducido directamente a mayor margen o mayor volumen de operaciones.'},
+      {title:'Knowledge management: el conocimiento colectivo del despacho', body:'El 73% del conocimiento de un despacho vive en la cabeza de sus socios senior o en documentos difícilmente localizables. Los sistemas de IA de gestión del conocimiento indexan toda la producción del despacho (contratos, escritos, informes) y permiten que cualquier abogado acceda a precedentes relevantes en segundos. Despachos que lo han implementado reportan -60% en tiempo de onboarding de nuevos abogados y +35% en reutilización de trabajo previo.'},
+      {title:'Automatización de documentos repetitivos', body:'El 40% de los documentos que produce un despacho son variantes de plantillas existentes: contratos de arrendamiento, actas, poderes notariales, cláusulas estándar. Los sistemas de automatización documental generan estos documentos en segundos a partir de datos estructurados, con revisión humana solo del delta. Despachos medianos recuperan entre 15 y 25 horas/semana de tiempo billable con esta sola automatización.'}
+    ],
+    competition: [
+      {who:'Garrigues, Cuatrecasas, Uría Menéndez', what:'Departamentos propios de Legal Tech con inversión en IA generativa. Contratos con Harvey AI y plataformas propias. Objetivo declarado: reducir 30% el tiempo de producción documental en 2025.'},
+      {who:'Despachos medianos (20-100 abogados)', what:'El 35% ya está en fase de piloto con herramientas como CoCounsel, Lexis+ AI o soluciones propias. El 65% restante está en fase de evaluación. Ventana de diferenciación: 12-18 meses.'},
+      {who:'Despachos boutique y especializados', what:'Alta adopción en áreas de M&A y contratos corporativos. Baja adopción en litigación y derecho laboral. Oportunidad: los despachos especializados que automaticen primero su área concreta capturan una ventaja difícil de replicar.'},
+      {who:'Despachos pequeños (<10 abogados)', what:'Menos del 8% ha implementado IA de forma sistemática. Los que lo hacen compiten en eficiencia con despachos 5 veces más grandes. El coste de entrada nunca ha sido tan bajo.'}
+    ],
+    opportunity: 'Un despacho de 10 abogados que implementa IA en revisión de contratos, gestión documental y automatización de plantillas puede recuperar entre 20 y 35 horas/semana de tiempo billable. A 150€/hora de media, son 3.000-5.250€ semanales de capacidad productiva recuperada. ROI típico: 2-3 meses.',
+    cta: 'El cliente corporativo ya empieza a preguntar cómo usan la IA sus asesores jurídicos. Los despachos que tengan una respuesta clara en 2025 capturarán el mandato.'
+  },
+  ecommerce: {
+    label: 'E-commerce',
+    year: '2025',
+    context: 'El e-commerce es el sector donde la IA lleva más tiempo generando retorno medible. Amazon lleva más de 15 años usando machine learning para recomendación y logística. Lo que era exclusivo de los grandes players es hoy accesible para cualquier tienda online. En 2024, las tiendas que usan IA en atención al cliente y personalización crecen un 2,3x más que las que no lo hacen.',
+    market: [
+      {num:'45%', desc:'Del revenue de Amazon proviene de su motor de recomendación basado en IA'},
+      {num:'2,3x', desc:'Crecimiento de revenue en e-commerces con IA vs. sin IA (McKinsey, 2024)'},
+      {num:'70%', desc:'De los carritos abandonados se pueden recuperar con seguimiento automático personalizado'},
+      {num:'4,5h', desc:'Tiempo medio de respuesta en atención al cliente de e-commerces sin IA en España'}
+    ],
+    trends: [
+      {title:'Personalización en tiempo real: el nuevo estándar', body:'En 2024, el 89% de las empresas de e-commerce que superan 10M€ de facturación usan algún tipo de personalización basada en datos. Los motores de recomendación actuales analizan comportamiento de navegación, historial de compra y contexto en tiempo real para mostrar el producto correcto en el momento correcto. El impacto promedio: +28% en ticket medio y +35% en tasa de conversión.'},
+      {title:'Atención al cliente: el cuello de botella que desaparece', body:'El volumen de tickets de atención al cliente crece a un ritmo del 18% anual en e-commerce. Los LLMs especializados en comercio electrónico (como los de Gorgias AI o Tidio) resuelven entre el 65% y el 80% de los tickets sin intervención humana, con tiempos de respuesta inferiores a 30 segundos. El coste por ticket cae de 5-8€ a menos de 0,20€. El NPS mejora en media 22 puntos.'},
+      {title:'Gestión de inventario predictiva: el ahorro invisible', body:'El sobrestock y el quiebre de stock cuestan al e-commerce español estimados 2.800M€ anuales. Los modelos de forecasting basados en IA predicen la demanda con un error inferior al 6%, frente al 18-25% de los modelos tradicionales. Las tiendas que los usan reducen el capital inmovilizado en inventario entre un 25% y un 40% mientras mejoran la disponibilidad de producto.'},
+      {title:'Search y descubrimiento: la IA como vendedor', body:'El 34% de las visitas a un e-commerce usan el buscador interno. Los motores de búsqueda semántica basados en IA entienden la intención del usuario (no solo las palabras exactas) y muestran resultados relevantes aunque el usuario no conozca el nombre exacto del producto. Tiendas que han migrado a búsqueda semántica reportan un incremento del 45% en conversión desde búsqueda y -30% en tasa de rebote.'}
+    ],
+    competition: [
+      {who:'Zara / Inditex', what:'IA integrada en toda la cadena: diseño, producción, distribución y atención al cliente. Sistema de recomendación propio. Optimización de inventario en tiempo real con margen de error <3%.'},
+      {who:'El Corte Inglés Online', what:'Despliegue de asistente virtual con IA para búsqueda y atención. Personalización por segmento. Reducción del 38% en abandonos en el checkout en 2024.'},
+      {who:'E-commerces mid-market (1M€-20M€)', what:'El 42% usa ya alguna herramienta de IA (mayoritariamente chatbots básicos o recomendación de Shopify). El 58% opera sin IA sistemática. Diferencial de crecimiento: 2x en los que ya la usan.'},
+      {who:'Tiendas small market (<1M€)', what:'Menos del 15% usa IA más allá de herramientas básicas de email marketing. El coste de entrada se ha reducido radicalmente: soluciones como Tidio, Gorgias o Klaviyo ofrecen IA a partir de 30€/mes.'}
+    ],
+    opportunity: 'Una tienda con 50.000 visitas/mes y ticket medio de 65€ que implementa personalización y recuperación de carrito puede esperar: +8-12% en conversión (+40-60 ventas/mes) y recuperación del 20-25% de carritos abandonados. ROI típico: 6-10 semanas.',
+    cta: 'El comprador online de 2025 espera una experiencia personalizada. Las tiendas que no la ofrezcan perderán cuota frente a las que sí lo hacen, independientemente del precio o el catálogo.'
+  },
+  asesoria: {
+    label: 'Asesoría y Consultoría',
+    year: '2025',
+    context: 'Las asesorías y consultoras están ante una transformación de modelo de negocio. La IA no solo automatiza tareas — cambia la proposición de valor: de "tiempo de experto" a "resultado garantizado". Las firmas que reorienten su modelo hacia esto multiplicarán su capacidad sin multiplicar su equipo. Las que no lo hagan verán comprimir sus márgenes.',
+    market: [
+      {num:'78%', desc:'De las Big Four ya ofrecen servicios de transformación IA a sus clientes (y los aplican internamente)'},
+      {num:'40%', desc:'De las tareas de una asesoría estándar son automatizables con IA actual (McKinsey, 2024)'},
+      {num:'3x', desc:'Ratio de clientes gestionables por consultor en firmas con IA vs. sin ella'},
+      {num:'6min', desc:'Tiempo de respuesta a leads en asesorías con IA vs. 4-8h en operación manual'}
+    ],
+    trends: [
+      {title:'Del modelo "horas" al modelo "resultados"', body:'La IA permite a una asesoría con 5 consultores gestionar la carga de trabajo de 15. Esto no significa solo más margen — significa un cambio de modelo: menos dependencia del tiempo del consultor, más capacidad de ofrecer precios fijos con mayor margen. Las asesorías que primero hagan esta transición capturan a los clientes que buscan certeza sobre coste y resultado.'},
+      {title:'Automatización de reporting: el tiempo más caro', body:'Un consultor de asesoría fiscal o financiera dedica en media 35-40% de su tiempo a generar informes, extractos y comunicaciones para clientes. Los sistemas de IA generan estos documentos en segundos a partir de datos estructurados, con el estilo y tono de la firma. Las asesorías que lo han implementado reportan que sus consultores dedican ese tiempo recuperado a aumentar la cartera de clientes.'},
+      {title:'Captación: el momento más crítico y más desatendido', body:'El 67% de los leads de asesoría en España que no reciben respuesta en menos de 1 hora contratan con el competidor. Los sistemas de respuesta automática con cualificación inteligente responden en menos de 2 minutos, recogen la información necesaria y agendan una reunión, todo sin intervención humana. Las asesorías que los usan tienen una tasa de conversión de leads entre 2x y 3x superior.'},
+      {title:'Conocimiento: el activo más infrautilizado', body:'El 80% del conocimiento útil de una asesoría — criterios, precedentes, plantillas, casuística — vive en la cabeza de dos o tres personas clave. Cuando esas personas se van, el conocimiento se va con ellas. Los sistemas de gestión del conocimiento con IA indexan y hacen accesible ese saber institucional, lo que además reduce drásticamente el tiempo de formación de nuevos consultores (-55% documentado en firmas españolas).'}
+    ],
+    competition: [
+      {who:'KPMG, Deloitte, PwC, EY', what:'Inversión masiva en IA interna y en oferta de servicios de IA a clientes. KPMG ha invertido 2.000M$ en IA en 2024. Sus consultores tienen acceso a herramientas propietarias para automatizar análisis, informes y due diligence.'},
+      {who:'Asesorías medianas (20-100 personas)', what:'El 28% está en proceso de implementación activa de IA en operaciones. El 72% está en fase de evaluación o no ha comenzado. Ventana de diferenciación clara en los próximos 18 meses.'},
+      {who:'Gestorías y asesorías fiscales', what:'Segmento con la adopción más baja pero el mayor potencial de automatización. El 85% opera con procesos manuales en gestión de clientes, reporting y captación. Los primeros en automatizar estos procesos están creciendo un 40-60% más rápido.'},
+      {who:'Consultoras boutique especializadas', what:'Las que se han posicionado como "IA-first" en su sector (ej: consultoría fiscal con IA, consultoría RR.HH. con IA) están captando mandatos que antes iban a firmas más grandes, a precios competitivos.'}
+    ],
+    opportunity: 'Una asesoría con 200 clientes activos que automatiza reporting, captación y seguimiento puede atender 350-400 clientes con el mismo equipo. Con un ticket medio de 300€/mes, son 45.000-60.000€ de revenue adicional mensual sin contratar. ROI típico: 3-4 meses.',
+    cta: 'El cliente de asesoría de 2025 espera respuesta inmediata, información actualizada y proactividad. Las firmas que den esa experiencia sin aumentar costes ganan. Las que no, pierden clientes ante las que sí.'
+  },
+  saas: {
+    label: 'SaaS y Tecnología',
+    year: '2025',
+    context: 'El sector SaaS es el primero en adoptar y el más presionado para adoptar. Los compradores de software ya preguntan por las capacidades de IA en el proceso de compra. En 2024, el 61% de las decisiones de compra de software B2B en Europa incluyen la IA como criterio de evaluación. Los SaaS sin IA nativa están perdiendo deals frente a los que sí la tienen.',
+    market: [
+      {num:'61%', desc:'De compradores B2B europeos incluyen IA como criterio de evaluación de software en 2024'},
+      {num:'3,2x', desc:'Mayor Net Revenue Retention en SaaS con IA embebida vs. SaaS sin IA (OpenView, 2024)'},
+      {num:'42%', desc:'De tickets de soporte en SaaS son resolubles sin intervención humana con IA actual'},
+      {num:'68%', desc:'Del churn temprano ocurre en los primeros 90 días — el período que más impacta el onboarding con IA'}
+    ],
+    trends: [
+      {title:'AI-native vs. AI-added: la brecha se amplía', body:'Existe una diferencia fundamental entre los SaaS que han construido su producto con IA desde el origen (Notion AI, Linear, Cursor) y los que han añadido IA como feature. Los primeros tienen una ventaja de producto sostenible. Los segundos necesitan una estrategia clara de integración para no quedar obsoletos. En 2024, los SaaS AI-native crecen un 3,8x más rápido que los tradicionales en el mismo segmento.'},
+      {title:'Customer Success a escala: el nuevo estándar', body:'El ratio histórico en SaaS era de 1 CSM por cada 80-120 cuentas. Los equipos con IA (monitorización automática de salud, detección de churn, intervenciones proactivas automatizadas) gestionan ratios de 1:300-500 sin perder calidad de servicio. El resultado: reducción del churn entre un 25% y un 40%, y NPS superior en media 18 puntos.'},
+      {title:'Onboarding: donde se gana o se pierde el cliente', body:'El 68% del churn en SaaS ocurre antes del día 90. Los sistemas de onboarding con IA adaptan el flujo de activación al perfil y comportamiento de cada usuario, detectan señales de fricción en tiempo real y activan intervenciones automáticas. SaaS que han implementado onboarding con IA reportan un incremento del 44% en activación (usuarios que alcanzan el valor esperado en los primeros 30 días) y una reducción del churn temprano del 35%.'},
+      {title:'Soporte: de centro de coste a ventaja competitiva', body:'El soporte ha sido históricamente un centro de coste que escala linealmente con el número de clientes. Los LLMs entrenados sobre la documentación de producto resuelven el 65-80% de los tickets de nivel 1 sin intervención humana, con tiempos de respuesta inferiores a 30 segundos. El coste por ticket cae un 85%. El CSAT mejora. Y el equipo de soporte puede focalizarse en los casos complejos que realmente requieren expertise humano.'}
+    ],
+    competition: [
+      {who:'HubSpot, Salesforce, Intercom', what:'IA embebida en toda la plataforma. HubSpot Breeze, Salesforce Einstein, Fin de Intercom. Estos players están redefiniendo el estándar del mercado y presionando a todos los SaaS del ecosistema a responder.'},
+      {who:'SaaS verticales con IA nativa', what:'Surgimiento masivo de competidores verticales AI-first en cada categoría. En CRM, en HR Tech, en finanzas, en legal tech. Capturan cuota de mercado a los players establecidos con propuestas de valor más focalizadas y mejores UX.'},
+      {who:'SaaS mid-market en España', what:'El 45% ya tiene alguna feature de IA en producto. El 55% está en proceso de incorporarla o evaluando. El diferencial entre los primeros y los últimos en adoptar se mide en puntos de churn y en deals perdidos.'},
+      {who:'SaaS early-stage', what:'Los que nacen hoy sin IA en su stack son competitivamente vulnerables desde el día uno. El coste de incorporar IA en producto nunca ha sido tan bajo gracias a APIs como OpenAI, Anthropic o Google Gemini.'}
+    ],
+    opportunity: 'Un SaaS con 500 clientes activos que implementa onboarding con IA, detección proactiva de churn y soporte automatizado puede esperar: reducción del churn mensual del 2,1% al 1,3% (-38%), incremento de la activación del 52% al 74%, y ratio CS de 1:80 a 1:350. Impacto en ARR a 12 meses: +18-25%.',
+    cta: 'En 2025, la IA en producto ha dejado de ser diferencial para convertirse en requisito. Los SaaS que no la tengan integrada de forma meaningful perderán deals ante los que sí la tienen.'
+  },
+  inmobiliario: {
+    label: 'Sector Inmobiliario',
+    year: '2026',
+    context: 'El sector inmobiliario español ha cruzado un punto de no retorno. En 2024, solo el 23% de las inmobiliarias usaba IA en su operativa. En 2026, esa cifra ha llegado al 71% para IA Generativa y supera el 90% si se incluyen todas las formas de automatización inteligente (CBRE, febrero 2026). Por primera vez, el sector alcanza un aprobado en madurez digital — 5,2 puntos sobre 10 — con proyección de 6,6 en 2028. Las áreas de mayor adopción: generación de contenido (86%), gestión de datos (81%), análisis documental (76%), atención al cliente automatizada (65%) y home staging virtual (57%). No es una tendencia gradual. Es una aceleración.',
+    market: [
+      {num: '-73%', desc: 'Reducción en tiempo de venta: de 120 días a 32 días en agencias con IA implementada (datos reales, 12-18 meses)'},
+      {num: '+167%', desc: 'Leads captados al mes: de 45 a 120. Tasa de conversión duplicada: del 8% al 16%'},
+      {num: '-71%', desc: 'Coste por lead cualificado: de 75€ a 22€ con captación y cualificación automática'},
+      {num: '391K€', desc: 'Pérdida anual estimada para una agencia de 50 operaciones/año que no implementa IA'}
+    ],
+    trends: [
+      {
+        title: 'La brecha entre agencias con y sin IA ya es medible — y se amplía cada trimestre',
+        body: 'Estos no son datos proyectados. Son resultados medidos en agencias españolas con 12-18 meses de IA implementada. Tiempo medio de venta: de 120 días a 32 días (-73%). Coste operativo reducido un 35%. Leads captados al mes: de 45 a 120 (+167%). Tasa de conversión: del 8% al 16% (+100%). Coste por lead cualificado: de 75€ a 22€ (-71%). Las inmobiliarias que ganan cuota en 2026 han convertido su web en una máquina de captación 24 horas, responden a cualquier consulta en segundos, valoran propiedades instantáneamente y presentan inmuebles con home staging virtual por 50€ en lugar de staging físico por 5.000€ — con impacto probado: -73% en tiempo de mercado y +6-10% en precio de venta.'
+      },
+      {
+        title: 'Captación y cualificación: el caso Aliseda y "LIA" — 30.000 conversaciones sin intervención humana',
+        body: 'Aliseda Inmobiliaria, uno de los servicers más grandes de España, implementó en 2025 el agente de IA "LIA", desarrollado con Google Cloud, Vertex AI y Gemini Pro 1.5. LIA no es un chatbot de FAQs — es un agente conversacional que comprende contexto, mantiene conversaciones naturales en múltiples idiomas y accede en tiempo real a la base de propiedades. Resultados en los primeros 6 meses: 30.000+ conversaciones gestionadas sin intervención del equipo, 45% de reducción en tiempo de primera respuesta, 87% de precisión en cualificación automática, disponibilidad 24/7/365 sin incremento de plantilla, e integración completa con CRM. El antes y después es concreto: un lead a las 22h antes esperaba respuesta hasta las 9h del día siguiente — 11 horas de ventana para que la competencia actuara. Con LIA, respuesta en menos de 30 segundos con información personalizada y enlace para agendar visita. El patrón se repite: Metrovacesa tiene "MiA", Aedas Homes desarrolló "Lara" junto a Salesforce. No son experimentos — son infraestructura de negocio.'
+      },
+      {
+        title: 'Valoración automática (AVM): error mediano del 1,94% frente al 8-12% del método tradicional',
+        body: 'Los modelos de valoración automática basados en IA analizan simultáneamente cientos de variables — histórico de transacciones, infraestructura, tendencias macro, comparables por calle y tipología — produciendo valoraciones con un error mediano del 1,94%, frente al 8-12% del método tradicional (Darwin AI, 2025). Las agencias que integran estos modelos dan al vendedor una horquilla de precio basada en datos en menos de 10 minutos, captan la exclusiva antes que la competencia, y fijan precios que generan ventas un 40% más rápidas que los inmuebles con precio subjetivo. En España, Tinsa ya ofrece valoraciones automáticas para el residencial. Valorar bien y rápido en 2026 es una ventaja competitiva directa y medible.'
+      },
+      {
+        title: 'Automatización del ciclo comercial: 15-20 horas semanales por agente recuperadas para vender',
+        body: 'Seguimientos post-visita personalizados, recordatorios automáticos, generación de contenido para portales y redes sociales, análisis de probabilidad de cierre por lead, redacción de propuestas y documentación estándar. Tareas que antes consumían 15-20 horas semanales por agente se reducen a minutos. El efecto no es solo de eficiencia — es estratégico: el agente dedica ese tiempo recuperado a visitas, negociaciones y relaciones. Las agencias que operan así aumentan el número de operaciones por agente sin aumentar jornada ni plantilla.'
+      },
+      {
+        title: 'Dos caminos divergentes: lo que separa una agencia en 2028 según decida hoy',
+        body: 'Agencia CON IA en 2028: captura el 100% de los leads las 24 horas, el equipo dedica el 80% del tiempo a actividades que generan ingresos directos, las propiedades se venden en 4-6 semanas, su margen operativo es un 35-40% más alto que la media. Agencia SIN IA en 2028: pierde el 67% de los leads fuera de horario, tarda días en valorar mientras la competencia responde en segundos, sus inmuebles permanecen 3-4 meses en mercado, sus agentes dedican 15-20h semanales a tareas automatizables, su coste por venta es un 50% mayor. La ventaja es acumulativa: 2026, la competencia captura un 30% más de leads. 2027, esos leads se convierten en propiedades captadas y referencias. 2028, su base de datos es 2-3 veces la tuya y su posicionamiento en zona es dominante. No se recupera simplemente adoptando IA más tarde.'
+      },
+      {
+        title: 'La ventana se cierra en 12-18 meses: por qué actuar ahora es crítico',
+        body: 'Tres razones concretas. (1) Efecto aprendizaje: los sistemas de IA mejoran con el tiempo y los datos. Quien empiece hoy tendrá 18-24 meses de ventaja en optimización que sus competidores no podrán replicar de golpe. (2) Coste de oportunidad creciente: cada mes sin IA representa leads perdidos, ventas más lentas y costes más altos. En 12 meses, la diferencia puede ser 50.000-150.000€ en oportunidades perdidas para una agencia mediana. (3) Percepción de marca: las agencias que adopten IA ahora serán percibidas como innovadoras. Las que esperen a 2028 se adaptarán al estándar tarde, sin diferencial. Estamos en el único momento en que adoptar IA supone una ventaja diferencial — no un simple requisito para sobrevivir. Quien lidera en captación hoy, domina el mercado en 36 meses.'
+      }
+    ],
+    competition: [
+      {who: 'Aliseda, Metrovacesa, Aedas Homes', what: 'Agentes de IA propios con nombre: LIA, MiA, Lara. Aliseda: 30.000 conversaciones automáticas en 6 meses, 87% de precisión en cualificación, respuesta en <30 segundos. Integración completa con CRM. Infraestructura de negocio — no pilotos.'},
+      {who: 'RE/MAX, Keller Williams, Century 21', what: 'Plataformas con IA para toda la red española: scoring de leads, seguimiento automatizado, valoración asistida. RE/MAX lanzó MAX/Tech en 2024. Están formando a sus agentes en IA como diferencial competitivo frente a independientes.'},
+      {who: 'Proptech nativas: Casavo, Tiko, Housfy', what: 'Han construido su modelo sobre automatización desde el origen. Operan con bajo coste y alta velocidad solo porque han automatizado el 80% de la gestión. Casavo hace oferta en <24h con modelos de valoración propios.'},
+      {who: 'Agencias independientes sin IA (29% del mercado en 2026)', what: 'Pierden leads fuera de horario, tardan días en valorar, dedican 15-20h/semana por agente a tareas automatizables. La brecha con agencias con IA se amplía cada trimestre. Ventana para actuar antes de que sea solo requisito de supervivencia: 12-18 meses.'}
+    ],
+    opportunity: 'Para una agencia de 3-5 agentes y 40-60 operaciones/año, el coste de la inacción es cuantificable: leads perdidos fuera de horario (96.000€), menor rotación de cartera -40% (80.000€), tiempo improductivo del equipo (120.000€), desventaja en captación de propiedades (50.000€), costes operativos elevados +35% (45.000€). Total: 391.000€ anuales. Frente a una inversión en IA de 3.600-12.000€/año, el coste de no actuar es entre 30 y 100 veces mayor. La oportunidad inversa: pasar de 50 a 80-90 operaciones anuales con el mismo equipo representa 120.000-160.000€ de revenue adicional con ROI en 6-8 semanas.',
+    cta: 'El 71% de las inmobiliarias ya usa IA. El 29% restante no está manteniendo el status quo — está retrocediendo mientras el mercado avanza. La ventaja competitiva en inmobiliario es acumulativa: cada mes con IA amplía la brecha, cada mes sin ella la agranda en la dirección contraria. La pregunta ya no es si implementar IA. Es si tu agencia puede permitirse esperar 12 meses más a hacerlo — y cuánto va a costar ese año de espera.'
+  },
+  formacion: {
+    label: 'Formación y Educación',
+    year: '2025',
+    context: 'El mercado de formación online ha crecido un 400% desde 2019. El problema: el 60% de los inscritos no completa los cursos, y el coste de captación de un nuevo alumno sigue subiendo. La IA está atacando ambos problemas simultáneamente: reduce el coste de captación y multiplica las tasas de finalización y satisfacción.',
+    market: [
+      {num:'400%', desc:'Crecimiento del mercado de e-learning desde 2019. Proyección global: 457.000M$ para 2026'},
+      {num:'60%', desc:'Tasa media de abandono en cursos online sin seguimiento personalizado'},
+      {num:'3,5x', desc:'Mayor tasa de finalización en programas con IA de seguimiento vs. sin ella'},
+      {num:'45%', desc:'Del presupuesto de una escuela online se va en captación de nuevos alumnos'}
+    ],
+    trends: [
+      {title:'El alumno espera personalización: ya no acepta lo genérico', body:'Netflix ha condicionado al usuario a recibir contenido personalizado. El alumno de 2025 espera lo mismo de su formación. Los sistemas de aprendizaje adaptativo con IA ajustan el ritmo, los ejemplos y el nivel de dificultad para cada alumno en tiempo real. Las plataformas que lo ofrecen reportan incrementos del 32% en tasa de finalización y del 41% en NPS respecto a plataformas de aprendizaje estándar.'},
+      {title:'Captación: el coste sube, la ventana baja', body:'El coste por lead en formación online en España se ha multiplicado por 3 en los últimos 4 años. Captar un alumno vía publicidad cuesta entre 180€ y 400€. La alternativa: convertir mejor. Los sistemas de respuesta automática e inteligente a leads (en menos de 2 minutos, con cualificación, con contenido de valor) incrementan la tasa de conversión del 3-5% estándar al 8-12%. Multiplicar por 2,5 la conversión equivale a reducir el coste de captación efectivo a la mitad.'},
+      {title:'Retención: el problema que más dinero cuesta', body:'El churn educativo es la metáfora del SaaS: es más barato retener que captar. Un alumno que abandona el curso ha costado entre 180€ y 400€ de captación y genera un coste de reputación (reviews negativas, boca a boca). Los sistemas de seguimiento con IA detectan las señales de abandono inminente (reducción de actividad, preguntas sin respuesta, dificultad con un módulo) y activan intervenciones automáticas personalizadas. Plataformas que los usan reducen el abandono del 60% al 30-35%.'},
+      {title:'Generación de contenido: de semanas a días', body:'Crear un módulo formativo nuevo (vídeos, materiales, evaluaciones, ejercicios) requería entre 40 y 80 horas de trabajo. Los sistemas de IA para generación de contenido educativo (estructuración de módulos, generación de ejercicios, cuestionarios adaptativos, resúmenes) reducen ese tiempo un 60-70%. Las escuelas que los usan lanzan nuevos programas 3 veces más rápido que sus competidores.'}
+    ],
+    competition: [
+      {who:'IEBS, ESIC, EAE Business School', what:'Inversión en plataformas de aprendizaje adaptativo con IA. IEBS ha lanzado programas con IA tutora integrada. EAE usa IA para personalización del itinerario formativo en sus programas online.'},
+      {who:'Plataformas internacionales (Coursera, Udemy, LinkedIn Learning)', what:'IA embebida para recomendación de cursos, learning paths personalizados y asistencia en el aprendizaje. Coursera Coach usa IA generativa para tutorías. Están redefiniendo el estándar del sector.'},
+      {who:'Escuelas online medianas', what:'El 31% ya usa IA en captación o en la plataforma de aprendizaje. El 69% compite con herramientas de hace 5 años. La brecha en conversión y retención es ya visible en los datos.'},
+      {who:'Formadores independientes y pequeñas academias', what:'Acceso a herramientas de IA de bajo coste (Kajabi AI, Teachable, LearnDash con plugins de IA). Los que las usan compiten en calidad de experiencia con escuelas 20 veces más grandes.'}
+    ],
+    opportunity: 'Una escuela online con 200 alumnos nuevos/año y ticket medio de 1.500€ que mejora su tasa de conversión del 4% al 9% y su retención del 40% al 65% tiene un impacto de +150K€ en revenue anual sin aumentar el presupuesto de captación. ROI típico: 2-3 meses.',
+    cta: 'El alumno de 2025 elige en función de la experiencia prometida, no solo del contenido. Las escuelas que ofrezcan personalización, respuesta inmediata y seguimiento real capturarán al alumno que la escuela tradicional está perdiendo.'
+  },
+  otros: {
+    label: 'Servicios B2B',
+    year: '2025',
+    context: 'Las empresas de servicios B2B están ante una oportunidad de escala sin precedentes. La IA permite ofrecer la misma calidad de servicio a 3 veces más clientes con el mismo equipo. Pero también introduce una amenaza: los competidores que la adopten primero comprimirán precios y capturarán cuota de mercado. La ventana para actuar es ahora.',
+    market: [
+      {num:'67%', desc:'De empresas de servicios B2B en Europa planean incrementar su inversión en IA en 2025'},
+      {num:'3x', desc:'Capacidad operativa documentada en empresas B2B con IA vs. sin IA en el mismo sector'},
+      {num:'5min', desc:'Tiempo medio de respuesta a leads en empresas B2B con IA vs. 4-8h sin IA'},
+      {num:'40%', desc:'De las tareas operativas en servicios B2B son automatizables con tecnología actual'}
+    ],
+    trends: [
+      {title:'Captación y respuesta: donde más dinero se pierde', body:'El 78% de los contratos B2B los gana la empresa que responde primero con información relevante. En España, el tiempo medio de respuesta a un lead B2B es de 4,2 horas. Las empresas con IA responden en menos de 5 minutos, con cualificación incluida y con el pitch adaptado al perfil del prospecto. El impacto en tasa de conversión está documentado: entre 2x y 4x superior al proceso manual.'},
+      {title:'Propuestas y documentación: el tiempo que no se ve', body:'Un consultor o comercial B2B dedica en media 6-8 horas a preparar una propuesta personalizada. Los sistemas de IA para generación de propuestas y documentación comercial reducen ese tiempo a 45-90 minutos, con mayor personalización que la versión manual. Las empresas que los usan envían más propuestas, más rápido, con mayor tasa de aceptación (+28% documentado).'},
+      {title:'Retención de clientes: la IA como sistema de alerta temprana', body:'El 70% de los clientes B2B que se dan de baja habían mostrado señales de insatisfacción entre 60 y 90 días antes. El problema es que nadie las vio. Los sistemas de IA de análisis de relación con el cliente (frecuencia de contacto, velocidad de respuesta, señales en emails y conversaciones) detectan esos patrones y activan alertas antes de que el cliente tome la decisión. Las empresas que los usan reducen el churn entre un 30% y un 45%.'},
+      {title:'Operaciones internas: el margen que se esconde', body:'El equipo de una empresa de servicios B2B dedica en media el 35% de su tiempo a tareas internas sin valor para el cliente: informes, coordinación, actualizaciones de CRM, seguimiento de tareas. La automatización de estas operaciones devuelve ese tiempo al trabajo de valor. Las empresas que han automatizado sus operaciones internas reportan un incremento del 28% en productividad sin contratar y una reducción del 42% en errores operativos.'}
+    ],
+    competition: [
+      {who:'Consultoras y agencias de servicios digitales', what:'Las más avanzadas han construido ventajas de eficiencia de 2-3x respecto a las tradicionales usando IA en propuestas, reporting y gestión de cuentas. Están ganando proyectos que antes iban a firmas más grandes.'},
+      {who:'Empresas de servicios especializados', what:'Las que han posicionado la IA como parte de su metodología (no solo como herramienta interna) están diferenciándose en ventas. El cliente B2B ya pregunta cómo usan la IA sus proveedores.'},
+      {who:'Mercado mid-market en España', what:'El 29% de las empresas de servicios B2B con 10-100 empleados usa IA de forma sistemática. El 71% está en fase inicial o sin implementación. Ventana de diferenciación: 18-24 meses antes de que sea estándar.'},
+      {who:'Empresas pequeñas (<10 personas)', what:'Las que han adoptado IA operan con la eficiencia de empresas 5 veces más grandes. Están ganando contratos que antes perdían por capacidad percibida. El coste de entrada es accesible: entre 200€ y 800€/mes para un stack completo.'}
+    ],
+    opportunity: 'Una empresa B2B con 50 clientes activos y 30 leads/mes que implementa IA en captación, propuestas y retención puede esperar: conversión de leads del 12% al 28%, retención de clientes del 78% al 91%, y capacidad para gestionar 80-100 clientes con el mismo equipo. ROI típico: 3-5 meses.',
+    cta: 'El cliente B2B de 2025 ya compara proveedores por su capacidad de respuesta y por la calidad de la experiencia, no solo por el precio. Las empresas que ofrezcan ambas cosas sin sacrificar margen ganarán la década.'
+  }
+};
+
+
+var SECTORS=[
+  {id:'salud',icon:'🏥',name:'Salud y clínicas'},
+  {id:'legal',icon:'⚖️',name:'Despacho jurídico'},
+  {id:'ecommerce',icon:'🛍️',name:'E-commerce'},
+  {id:'asesoria',icon:'📊',name:'Asesoría y consultoría'},
+  {id:'saas',icon:'💻',name:'SaaS / Tecnología'},
+  {id:'inmobiliario',icon:'🏢',name:'Inmobiliario'},
+  {id:'formacion',icon:'🎓',name:'Formación y educación'},
+  {id:'otros',icon:'◎',name:'Servicios B2B'}
+];
+
+var QUESTIONS=[
+  {area:'Respuesta a leads',text:'Cuando un cliente potencial contacta con tu empresa, ¿cuánto tarda en recibir una primera respuesta?',options:[
+    {text:'Menos de 5 minutos, de forma automática',score:0},
+    {text:'En menos de 1 hora, manualmente',score:1},
+    {text:'Entre 1 y 4 horas',score:2},
+    {text:'Al día siguiente o más',score:3}]},
+  {area:'Seguimiento comercial',text:'¿Existe un proceso estructurado para hacer seguimiento de leads que no han cerrado?',options:[
+    {text:'Sí, es automático: secuencias sin intervención manual',score:0},
+    {text:'Sí, pero lo hace una persona de forma manual',score:1},
+    {text:'Parcialmente: depende de que cada comercial se acuerde',score:2},
+    {text:'No hay proceso. Se hace cuando alguien lo recuerda',score:3}]},
+  {area:'Gestión de información',text:'¿Dónde vive la información de clientes, leads y oportunidades?',options:[
+    {text:'En un CRM centralizado, actualizado y accesible para todos',score:0},
+    {text:'En un CRM, pero con datos desactualizados o incompletos',score:1},
+    {text:'En hojas de cálculo o Excel',score:2},
+    {text:'En WhatsApp, email y varios sitios sin conexión',score:3}]},
+  {area:'Tareas repetitivas',text:'¿Cuánto tiempo dedica tu equipo a la semana a tareas sin valor añadido?',options:[
+    {text:'Menos de 2 horas: la mayoría está automatizado',score:0},
+    {text:'Entre 2 y 5 horas',score:1},
+    {text:'Entre 5 y 10 horas',score:2},
+    {text:'Más de 10 horas semanales',score:3}]},
+  {area:'Visibilidad operativa',text:'¿Tienes visibilidad en tiempo real de cuántos leads entran y dónde se pierden?',options:[
+    {text:'Sí, dashboard actualizado con métricas de conversión',score:0},
+    {text:'Parcialmente: algunos datos sí, pero no el cuadro completo',score:1},
+    {text:'Solo cuando alguien lo revisa manualmente',score:2},
+    {text:'No. Las decisiones se toman por intuición',score:3}]},
+  {area:'Atención fuera de horario',text:'Cuando alguien contacta fuera del horario laboral, ¿qué ocurre?',options:[
+    {text:'Recibe respuesta automática inmediata con cualificación',score:0},
+    {text:'Recibe un mensaje automático informando que le atenderemos',score:1},
+    {text:'No recibe nada hasta el día siguiente',score:2},
+    {text:'No hay ningún proceso definido',score:3}]},
+  {area:'Escalabilidad',text:'Si el volumen de clientes aumentara un 30% este mes, ¿qué pasaría?',options:[
+    {text:'El sistema lo absorbe: escala sin intervención manual',score:0},
+    {text:'Aumenta algo, pero el equipo lo gestiona',score:1},
+    {text:'Se nota: más errores, más estrés',score:2},
+    {text:'Sería un problema serio: habría que contratar',score:3}]}
+];
+
+var selectedSector=null,current=0,answers=new Array(QUESTIONS.length).fill(null),reportData=null;
+var TOTAL=QUESTIONS.length+1;
+
+function updP(step){
+  document.getElementById('progressWrap').classList.remove('hidden');
+  document.getElementById('introBlock').classList.add('hidden');
+  document.getElementById('progressCount').textContent=step+' / '+TOTAL;
+  document.getElementById('progressFill').style.width=((step/TOTAL)*100)+'%';
+}
+
+function renderSector(){
+  updP(1);
+  var h='<div class="card"><div class="sector-header"><div class="sector-tag">Paso 1 de '+TOTAL+'</div><div class="sector-title">¿En qué sector opera tu empresa?</div><div class="sector-sub">Selecciona tu sector para recibir el informe de IA específico para tu industria.</div></div><div class="sector-grid">';
+  SECTORS.forEach(function(s){h+='<button class="sec-btn'+(selectedSector===s.id?' selected':'')+'" onclick="selS(\''+s.id+'\')"><span class="sec-icon">'+s.icon+'</span><span class="sec-name">'+s.name+'</span></button>';});
+  h+='</div><div class="sector-footer"><button class="btn-next'+(selectedSector?' on':'')+'" onclick="goSector()">Siguiente →</button></div></div>';
+  document.getElementById('mainBlock').innerHTML=h;
+}
+function selS(id){selectedSector=id;renderSector();}
+function goSector(){if(!selectedSector)return;current=0;renderQ();}
+
+function renderQ(){
+  updP(current+2);
+  var q=QUESTIONS[current],sel=answers[current];
+  var h='<div class="card"><div class="q-header"><div class="q-num">0'+(current+2)+'</div><div><div class="q-area">'+q.area+'</div><div class="q-text">'+q.text+'</div></div></div><div class="q-options">';
+  q.options.forEach(function(o,i){h+='<button class="opt-btn'+(sel===i?' selected':'')+'" onclick="selO('+i+')"><span class="opt-letter">'+String.fromCharCode(65+i)+'</span><span class="opt-text">'+o.text+'</span></button>';});
+  h+='</div><div class="q-footer"><button class="btn-back" onclick="goBack()">← Anterior</button><button class="btn-next'+(sel!==null?' on':'')+'" onclick="goNext()">'+(current===QUESTIONS.length-1?'Ver diagnóstico →':'Siguiente →')+'</button></div></div>';
+  document.getElementById('mainBlock').innerHTML=h;
+}
+function selO(i){answers[current]=i;renderQ();}
+function goNext(){
+  if(answers[current]===null)return;
+  if(current<QUESTIONS.length-1){current++;renderQ();}
+  else{document.getElementById('mainBlock').innerHTML='';document.getElementById('progressWrap').classList.add('hidden');document.getElementById('contactBlock').classList.remove('hidden');}
+}
+function goBack(){if(current>0){current--;renderQ();}else{renderSector();}}
+
+function generateResults(){
+  var name=document.getElementById('cf-name').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var company=document.getElementById('cf-company').value.trim();
+  if(!name||!email||!company){alert('Por favor completa nombre, empresa y email.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Introduce un email válido.');return;}
+  var total=0;
+  answers.forEach(function(a,i){if(a!==null)total+=QUESTIONS[i].options[a].score;});
+  var pct=Math.round((total/(QUESTIONS.length*3))*100);
+  var areas=QUESTIONS.map(function(q,i){return{name:q.area,score:answers[i]!==null?QUESTIONS[i].options[answers[i]].score:0,answer:answers[i]!==null?QUESTIONS[i].options[answers[i]].text:'—'};}).sort(function(a,b){return b.score-a.score;});
+  var badge,bcls,title,sub;
+  if(pct>=60){badge='FRICCIÓN ALTA';bcls='badge-high';title='Tu operación tiene margen de mejora significativo';sub='El informe sectorial que recibirás te mostrará exactamente qué están haciendo ya tus competidores — y qué puedes hacer tú.';}
+  else if(pct>=30){badge='FRICCIÓN MODERADA';bcls='badge-mid';title='Hay procesos mejorables con retorno claro';sub='El informe te mostrará las oportunidades de IA en tu sector que generan mayor retorno con menor esfuerzo de implementación.';}
+  else{badge='OPERACIÓN OPTIMIZADA';bcls='badge-low';title='Tu operación está bien estructurada';sub='El informe te mostrará las tendencias emergentes de IA en tu sector y las oportunidades de escala para el siguiente nivel.';}
+  var sc=SC[selectedSector]||SC.otros;
+  reportData={name:name,email:email,company:company,pct:pct,areas:areas,badge:badge,bcls:bcls,title:title,sub:sub,sc:sc,sector:selectedSector};
+  document.getElementById('contactBlock').classList.add('hidden');
+  var rb=document.getElementById('rBadge');rb.className='r-badge '+bcls;rb.textContent=badge;
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rSub').textContent=sub;
+  document.getElementById('scoreNum').textContent=pct+'%';
+  document.getElementById('scoreLblMain').textContent='Índice de fricción operativa';
+  document.getElementById('scoreLblSub').textContent=pct>=60?'Operación con múltiples puntos de mejora identificados.':pct>=30?'Procesos con retorno directo al optimizarse.':'Operación bien estructurada y lista para escalar.';
+  var al='';
+  areas.forEach(function(a){
+    var tc=a.score===3?'t-hi':a.score>=1?'t-mid':'t-ok';
+    var tl=a.score===3?'MEJORA URGENTE':a.score===2?'MEJORABLE':a.score===1?'OPTIMIZABLE':'BIEN';
+    al+='<div class="a-item '+(a.score>=2?'hi':'ok')+'"><span class="a-name">'+a.name+'</span><span class="a-tag '+tc+'">'+tl+'</span></div>';
+  });
+  document.getElementById('areasList').innerHTML=al;
+  document.getElementById('resultBlock').classList.remove('hidden');
+}
+
+function openReport(){
+  if(!reportData){alert('Completa el diagnóstico primero.');return;}
+  var d=reportData, sc=d.sc;
+  var today=new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'});
+  var scoreColor=d.pct>=60?'#e5342b':d.pct>=30?'#e5b42b':'#2be578';
+  var scoreBg=d.pct>=60?'rgba(229,52,43,.2)':d.pct>=30?'rgba(229,180,43,.18)':'rgba(43,229,120,.15)';
+
+  // Market stats
+  var mStats='';
+  sc.market.forEach(function(m){
+    mStats+='<div style="background:#141414;border:1px solid #1e1e1e;padding:5mm 4mm;text-align:center">'
+      +'<div style="font-size:20pt;font-weight:700;color:#e5342b;line-height:1.1;margin-bottom:2mm">'+m.num+'</div>'
+      +'<div style="font-size:6.5pt;color:#888;line-height:1.5">'+m.desc+'</div></div>';
+  });
+
+  // Trends p2
+  var trends='';
+  sc.trends.forEach(function(t,i){
+    trends+='<div style="border:1px solid #1e1e1e;border-left:3px solid #e5342b;background:#111;margin-bottom:3mm;padding:4mm 4.5mm">'
+      +'<div style="font-size:9pt;font-weight:700;color:#f0ede8;margin-bottom:2mm">'+t.title+'</div>'
+      +'<div style="font-size:7.5pt;color:#999;line-height:1.6">'+t.body+'</div></div>';
+  });
+
+  // Competition p3
+  var comp='';
+  sc.competition.forEach(function(c){
+    comp+='<div style="border:1px solid #1e1e1e;background:#111;margin-bottom:2.5mm;padding:3.5mm 4mm">'
+      +'<div style="font-size:8pt;font-weight:700;color:#e5342b;margin-bottom:1.5mm">'+c.who+'</div>'
+      +'<div style="font-size:7pt;color:#999;line-height:1.55">'+c.what+'</div></div>';
+  });
+
+  var navbar='<div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0a0a0a;border-bottom:1px solid #222;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;print:none" class="noprint">'
+    +'<span style="font-size:11pt;font-weight:700;color:#f0ede8;font-family:Arial,sans-serif">WHANGA<span style="color:#e5342b">.</span></span>'
+    +'<div style="display:flex;gap:10px">'
+    +'<button onclick="window.print()" style="background:none;border:1px solid #333;color:#999;font-size:12px;padding:6px 14px;cursor:pointer;font-family:Arial,sans-serif">Guardar PDF</button>'
+    +'<button onclick="location.reload()" style="background:#e5342b;border:none;color:#fff;font-size:12px;font-weight:600;padding:6px 14px;cursor:pointer;font-family:Arial,sans-serif">← Volver</button>'
+    +'</div></div>';
+
+  var css='<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a0a;font-family:Arial,sans-serif;color:#f0ede8;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+    +'.noprint{display:flex}'
+    +'@media print{.noprint{display:none!important}@page{margin:0}}'
+    +'.page{width:100%;max-width:210mm;margin:0 auto;min-height:297mm;background:#0a0a0a;padding:14mm 14mm 12mm 18mm;position:relative;border-bottom:1px solid #111}'
+    +'@media print{.page{page-break-after:always;border-bottom:none}.page:last-child{page-break-after:auto}}'
+    +'.redtop{height:5px;background:#e5342b;position:absolute;top:0;left:0;right:0}'
+    +'.redleft{width:4px;background:#e5342b;position:absolute;top:5px;left:0;bottom:5px}'
+    +'.redbot{height:4px;background:#e5342b;position:absolute;bottom:0;left:0;right:0}'
+    +'.ft{position:absolute;bottom:8mm;left:18mm;right:14mm;display:flex;justify-content:space-between}'
+    +'.ft span{font-size:6pt;color:#333;font-family:monospace}'
+    +'</style>';
+
+  var html='<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><title>Informe IA · '+sc.label+' · '+d.company+'</title>'+css+'</head><body style="padding-top:50px">'
+    +navbar
+
+    // ── PÁGINA 1: PORTADA + CONTEXTO ──
+    +'<div class="page" style="padding-top:16mm">'
+    +'<div class="redtop"></div><div class="redleft"></div><div class="redbot"></div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6mm">'
+    +'<span style="font-size:11pt;font-weight:700;color:#f0ede8">WHANGA<span style="color:#e5342b">.</span></span>'
+    +'<span style="font-size:6pt;color:#444;font-family:monospace">whangamedia.com · '+today+'</span></div>'
+    +'<div style="background:#e5342b;display:inline-block;padding:2mm 4mm;font-size:6.5pt;font-weight:700;color:#fff;letter-spacing:.1em;margin-bottom:5mm;text-transform:uppercase">Informe Sectorial de IA · '+sc.year+'</div>'
+    +'<div style="font-size:24pt;font-weight:700;color:#f0ede8;line-height:1.1;margin-bottom:2mm">IA en '+sc.label+'</div>'
+    +'<div style="font-size:12pt;font-weight:400;color:#888;line-height:1.3;margin-bottom:2mm">Estado actual, tendencias y oportunidades</div>'
+    +'<div style="font-size:8pt;color:#555;margin-bottom:7mm;font-family:monospace">Preparado para: '+d.name+' · '+d.company+'</div>'
+    // Separador
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:5mm"></div>'
+    // Contexto
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">CONTEXTO SECTORIAL</div>'
+    +'<div style="font-size:9pt;color:#ccc;line-height:1.7;margin-bottom:6mm">'+sc.context+'</div>'
+    // Market stats
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">DATOS CLAVE DEL MERCADO</div>'
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:3mm"></div>'
+    +'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin-bottom:6mm">'+mStats+'</div>'
+    // Score usuario
+    +'<div style="background:#141414;border:1px solid #2a2a2a;border-left:4px solid #e5342b;padding:4mm 5mm;display:flex;align-items:center;gap:5mm">'
+    +'<div style="font-size:28pt;font-weight:700;color:#e5342b;line-height:1;flex-shrink:0">'+d.pct+'%</div>'
+    +'<div><div style="font-size:6pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5mm">TU ÍNDICE DE FRICCIÓN OPERATIVA · '+d.company+'</div>'
+    +'<div style="font-size:7pt;font-weight:700;padding:1mm 2.5mm;display:inline-block;margin-bottom:1.5mm;font-family:monospace;background:'+scoreBg+';color:'+scoreColor+'">'+d.badge+'</div>'
+    +'<div style="font-size:8pt;color:#ccc;line-height:1.4">'+d.sub+'</div></div></div>'
+    +'<div class="ft"><span>WHANGA MEDIA · hola@whangamedia.com · +34 660 32 37 21</span><span>Página 1 de 4</span></div></div>'
+
+    // ── PÁGINA 2: TENDENCIAS ──
+    +'<div class="page">'
+    +'<div class="redtop"></div><div class="redleft"></div><div class="redbot"></div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5mm">'
+    +'<span style="font-size:11pt;font-weight:700;color:#f0ede8">WHANGA<span style="color:#e5342b">.</span></span>'
+    +'<span style="font-size:6pt;color:#444;font-family:monospace">IA en '+sc.label+' · Tendencias</span></div>'
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">LAS 4 TENDENCIAS QUE ESTÁN DEFINIENDO EL SECTOR</div>'
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:3mm"></div>'
+    +'<div style="font-size:16pt;font-weight:700;color:#f0ede8;line-height:1.2;margin-bottom:2mm">Lo que está pasando ahora mismo en tu sector</div>'
+    +'<div style="font-size:8pt;color:#777;line-height:1.5;margin-bottom:5mm">Datos actualizados a '+sc.year+'. Fuentes: McKinsey, Gartner, informes sectoriales y casos documentados en el mercado español y europeo.</div>'
+    +trends
+    +'<div class="ft"><span>WHANGA MEDIA · hola@whangamedia.com · +34 660 32 37 21</span><span>Página 2 de 4</span></div></div>'
+
+    // ── PÁGINA 3: COMPETENCIA ──
+    +'<div class="page">'
+    +'<div class="redtop"></div><div class="redleft"></div><div class="redbot"></div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5mm">'
+    +'<span style="font-size:11pt;font-weight:700;color:#f0ede8">WHANGA<span style="color:#e5342b">.</span></span>'
+    +'<span style="font-size:6pt;color:#444;font-family:monospace">IA en '+sc.label+' · Panorama competitivo</span></div>'
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">QUÉ ESTÁ HACIENDO TU COMPETENCIA</div>'
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:3mm"></div>'
+    +'<div style="font-size:16pt;font-weight:700;color:#f0ede8;line-height:1.2;margin-bottom:2mm">El mapa de adopción de IA en tu sector</div>'
+    +'<div style="font-size:8pt;color:#777;line-height:1.5;margin-bottom:5mm">Análisis del estado de adopción de IA por segmento de mercado. Quién ya lo está haciendo, qué resultados está obteniendo y dónde está la ventana de oportunidad.</div>'
+    +comp
+    // Oportunidad
+    +'<div style="border-top:1px solid #1e1e1e;margin:4mm 0 3mm"></div>'
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">OPORTUNIDAD CONCRETA PARA TU NEGOCIO</div>'
+    +'<div style="background:#141414;border:1px solid #2a2a2a;border-left:4px solid #e5342b;padding:4mm 5mm">'
+    +'<div style="font-size:8.5pt;color:#e0ddd8;line-height:1.65">'+sc.opportunity+'</div></div>'
+    +'<div class="ft"><span>WHANGA MEDIA · hola@whangamedia.com · +34 660 32 37 21</span><span>Página 3 de 4</span></div></div>'
+
+    // ── PÁGINA 4: CONCLUSIÓN + CTA ──
+    +'<div class="page">'
+    +'<div class="redtop"></div><div class="redleft"></div><div class="redbot"></div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5mm">'
+    +'<span style="font-size:11pt;font-weight:700;color:#f0ede8">WHANGA<span style="color:#e5342b">.</span></span>'
+    +'<span style="font-size:6pt;color:#444;font-family:monospace">IA en '+sc.label+' · Conclusiones</span></div>'
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">CONCLUSIÓN Y PRÓXIMOS PASOS</div>'
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:3mm"></div>'
+    +'<div style="font-size:16pt;font-weight:700;color:#f0ede8;line-height:1.2;margin-bottom:4mm">La ventana de oportunidad está abierta</div>'
+    // Conclusión editorial
+    +'<div style="background:#111;border:1px solid #1e1e1e;border-left:3px solid #e5342b;padding:5mm 5.5mm;margin-bottom:4mm">'
+    +'<div style="font-size:9.5pt;color:#ccc;line-height:1.7;font-style:italic">'+sc.cta+'</div></div>'
+    // Diagnóstico usuario
+    +'<div style="font-size:6.5pt;color:#555;font-family:monospace;text-transform:uppercase;letter-spacing:.12em;margin-bottom:2mm">TU SITUACIÓN ACTUAL · '+d.company.toUpperCase()+'</div>'
+    +'<div style="border-top:1px solid #1e1e1e;margin-bottom:3mm"></div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-bottom:5mm">'
+    +d.areas.slice(0,6).map(function(a){
+      var bc=a.score>=2?'#e5342b':a.score===1?'#e5b42b':'#2be578';
+      var tl=a.score>=2?'MEJORA DISPONIBLE':a.score===1?'OPTIMIZABLE':'BIEN';
+      return '<div style="background:#111;border:1px solid #1e1e1e;border-left:3px solid '+bc+';padding:2.5mm 3mm;display:flex;justify-content:space-between;align-items:center;gap:2mm">'
+        +'<span style="font-size:7.5pt;font-weight:600;color:#ddd">'+a.name+'</span>'
+        +'<span style="font-size:5.5pt;font-family:monospace;font-weight:700;color:'+bc+'">'+tl+'</span></div>';
+    }).join('')
+    +'</div>'
+    // CTA box
+    +'<div style="background:#e5342b;padding:6mm;text-align:center;margin-bottom:4mm">'
+    +'<div style="font-size:13pt;font-weight:700;color:#fff;margin-bottom:2mm;line-height:1.25">Sesión de diagnóstico estratégico gratuita</div>'
+    +'<div style="font-size:8pt;color:rgba(255,255,255,.8);line-height:1.5;margin-bottom:3mm">30 minutos · Análisis de tu situación específica · Hoja de ruta concreta para tu negocio<br>Sin compromiso · Solo para negocios establecidos</div>'
+    +'<div style="font-size:9pt;font-weight:700;color:#fff;font-family:monospace">whangamedia.com · hola@whangamedia.com · +34 660 32 37 21</div></div>'
+    +'<div style="font-size:6.5pt;color:#333;text-align:center;line-height:1.5">Este informe ha sido preparado por Whanga Media para uso exclusivo de '+d.company+'. Los datos sectoriales provienen de fuentes públicas de investigación de mercado (McKinsey, Gartner, informes sectoriales) y están actualizados a '+sc.year+'. © 2025 Whanga Media.</div>'
+    +'<div class="ft"><span>© 2025 Whanga Media · Todos los derechos reservados</span><span>Página 4 de 4</
